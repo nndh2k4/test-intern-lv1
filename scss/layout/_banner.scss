@@ -1,0 +1,78 @@
+.banner {
+  margin-top: 100px;
+  padding: 0 var(--padding-container);
+  &-image {
+    position: relative;
+    width: 600px;
+    height: 800px;
+
+    &:nth-child(1) {
+      background: url("../../assest/images/banner-1.png") lightgray 50% / cover
+        no-repeat;
+    }
+    &:nth-child(2) {
+      background: url("../../assest/images/banner-2.png") lightgray 50% / cover
+        no-repeat;
+    }
+    &:nth-child(3) {
+      background: url("../../assest/images/banner-3.png") lightgray 50% / cover
+        no-repeat;
+    }
+
+    border-radius: 10px;
+  }
+
+  &-desc {
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    color: var(--heading);
+
+    & h3 {
+      font-size: 36px;
+      text-align: center;
+      line-height: calc(25 / 36);
+    }
+
+    & p {
+      font-size: 12px;
+      line-height: calc(8 / 12);
+    }
+    &-line {
+      width: 96px;
+      height: 2px;
+      background-color: var(--heading);
+    }
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .banner {
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &-image {
+      width: 299px;
+      height: 399px;
+      overflow: hidden;
+      flex: 0 0 77%;
+    }
+
+    &-desc {
+      left: 30px;
+      bottom: 30px;
+      gap: 25px;
+      & h3 {
+        font-size: 30px;
+      }
+
+      & div:first-child {
+        gap: 15px;
+      }
+    }
+  }
+}

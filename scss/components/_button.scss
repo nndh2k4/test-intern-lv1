@@ -1,0 +1,42 @@
+/* Button */
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.btn-primary {
+  border-radius: 30px;
+  background: var(--white);
+  color: var(--heading);
+}
+
+.btn-secondary {
+  border-radius: 30px;
+  background: var(--heading);
+  color: var(--white);
+}
+
+.btn-large {
+  width: 390px;
+  height: 50px;
+}
+
+.btn-medium {
+  width: 268px;
+  height: 50px;
+}
+
+.btn-small {
+  width: 208px;
+  height: 45px;
+}
+
+.btn-normal {
+  width: 160px;
+  height: 50px;
+}

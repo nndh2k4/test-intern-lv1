@@ -1,0 +1,62 @@
+/* Badge */
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+}
+
+.badge-menu {
+  display: inline-flex;
+  padding: 4px 10px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 20px;
+}
+
+.badge-hot,
+.badge-new,
+.badge-tiktok {
+  color: var(--white);
+  text-align: center;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-hot {
+  background-color: var(--hot-badge);
+}
+
+.badge-new {
+  background-color: var(--new-badge);
+}
+
+.badge-tiktok {
+  background-color: var(--heading);
+}
+
+.badge-sold-out {
+  width: 70px;
+  height: 25px;
+  padding: 10px;
+  background: var(--sold-out);
+}
+
+.badge-sale {
+  width: 50px;
+  height: 25px;
+  padding: 10px;
+  background: var(--sale);
+  color: var(--white);
+}
+
+.badge-pre-order {
+  width: 75px;
+  height: 25px;
+  padding: 10px;
+  background: var(--pre-order);
+}

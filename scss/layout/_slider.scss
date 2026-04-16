@@ -1,0 +1,123 @@
+/* slider */
+
+.slider {
+  position: relative;
+  max-width: var(--max-width);
+  height: 810px;
+
+  background-image: url("./assest/images/stylish-top-trending.jpg");
+  background-color: lightgray;
+  background-position: 0px 0px;
+  background-size: 100% 104.938%;
+  background-repeat: no-repeat;
+}
+
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left: calc(353px / var(--max-width) * 100%);
+  transform: translateY(-50%);
+}
+
+.slider-content button {
+  width: 200px;
+  height: 55px;
+}
+
+.slider-content-info h1 {
+  font-size: 80px;
+  line-height: 80px;
+  color: var(--heading);
+  text-align: center;
+}
+
+.slider-content-info p {
+  color: var(--heading);
+}
+
+.slider-btn-prev,
+.slider-btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.slider-btn-prev {
+  left: var(--padding-container);
+}
+
+.slider-btn-next {
+  right: var(--padding-container);
+}
+
+.slider-btn-prev svg > path,
+.slider-btn-next svg > path {
+  fill: var(--white);
+}
+
+.slider-btn-prev:hover,
+.slider-btn-next:hover {
+  background-color: var(--white);
+}
+
+.slider-btn-prev:hover svg > path,
+.slider-btn-next:hover svg > path {
+  fill: var(--heading);
+}
+
+.slider-dots {
+  display: none;
+}
+
+@media screen and (max-width: 767.98px) {
+  /* slider */
+  .slider {
+    width: 430px;
+    height: 550px;
+
+    background-image: url("./assest/images/stylish-top-trending.jpg");
+    background-color: lightgray;
+    background-position: 0px 0px;
+    background-size: 100% 104.938%;
+    background-repeat: no-repeat;
+  }
+
+  .slider-content-info h1 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 45px;
+    text-align: left;
+  }
+
+  .slider-btn-prev,
+  .slider-btn-next {
+    display: none;
+  }
+
+  .slider-content {
+    left: 21px;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .slider-content button {
+    width: 180px;
+    height: 50px;
+  }
+
+  .slider-content-info {
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .slider-dots {
+    display: inline-flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
