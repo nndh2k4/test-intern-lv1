@@ -2,10 +2,15 @@
   margin-top: 100px;
   &-title {
     & h2 {
-      color: var(--Theading);
+      color: var(--heading);
       text-align: center;
       font-size: 45px;
       line-height: calc(32 / 45);
+    }
+
+    & p {
+      color: var(--body);
+      line-height: calc(16 / 23);
     }
   }
 
@@ -22,6 +27,10 @@
     padding: 40px;
     border-radius: 10px;
     border: 1px solid var(--line);
+
+    & + & {
+      margin-left: 30px;
+    }
   }
 
   &-avatar {
@@ -41,6 +50,11 @@
   }
 
   &-message {
+    // Limit to 3 lines and add ellipsis if the content exceeds
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     text-align: center;
     line-height: 24px;
   }
@@ -58,11 +72,11 @@
     }
 
     &-prev {
-      left: calc(20px + 30px); // 30px gap
+      left: calc(20px);
     }
 
     &-next {
-      right: calc(20px + 30px); // 30px gap
+      right: calc(20px);
     }
   }
 }
@@ -94,5 +108,54 @@
         background-color: var(--white);
       }
     }
+
+    &-control {
+      display: none;
+    }
+
+    &-products {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory; // Enable horizontal snapping
+
+      &::-webkit-scrollbar {
+        display: none; // Hide scrollbar
+      }
+    }
+
+    &-product {
+      width: auto;
+      padding: 30px;
+      flex: 0 0 100%;
+      scroll-snap-align: start; // Ensure each product snaps to the start of the container
+      scroll-snap-stop: always; // Ensure snapping occurs even if the user scrolls quickly
+    }
+  }
+}
+
+@media screen and (max-width: 1023.98px) {
+  .feedback {
+    &-control {
+      display: none;
+    }
+    &-products {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+
+      &::-webkit-scrollbar {
+        display: none; // Hide scrollbar
+      }
+    }
+
+    &-product {
+      width: auto;
+      padding: 30px;
+      flex: 0 0 calc((100% - 30px) / 2);
+    }
+  }
+}
+
+@media screen and (min-width: 1023.98px) and (max-width: 1439.98px) {
+  .feedback-product {
+    width: auto;
   }
 }

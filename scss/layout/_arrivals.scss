@@ -102,6 +102,7 @@
         display: block;
         color: var(--body);
         text-align: center;
+        line-height: calc(16 / 23);
       }
     }
 
@@ -180,8 +181,30 @@
           font-size: 12px;
           color: var(--white);
         }
-
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1279.98px) {
+  .arrivals {
+    &-product:nth-child(4) {
+      display: none;
+    }
+
+    &-product {
+      &-img {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023.98px) {
+  .arrivals {
+    &-product:nth-child(3),
+    &-product:nth-child(4) {
+      display: none;
     }
   }
 }

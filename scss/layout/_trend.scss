@@ -40,12 +40,56 @@
   &-product {
     position: relative;
     &-img {
+      position: relative;
       width: 330px;
       height: 440px;
+      border-radius: 10px;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: rgba(17, 17, 17, 0.35);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
 
       & img {
-        border-radius: 10px;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .trend-product-addtocart {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        min-width: 160px;
+        height: 45px;
+        padding: 10px 24px;
+        border-radius: 30px;
+        background: var(--white);
+        color: var(--heading);
+        transform: translate(-50%, -50%) translateY(12px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &:hover .trend-product-addtocart {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%);
       }
     }
 
@@ -140,6 +184,14 @@
       &-img {
         width: 185px;
         height: 246px;
+
+        &::after {
+          display: none;
+        }
+
+        .trend-product-addtocart {
+          display: none;
+        }
       }
 
       &-actions {
@@ -184,8 +236,30 @@
           font-size: 12px;
           color: var(--white);
         }
-
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1279.98px) {
+  .trend {
+    &-product:nth-child(4) {
+      display: none;
+    }
+
+    &-product {
+      &-img {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023.98px) {
+  .trend {
+    &-product:nth-child(3),
+    &-product:nth-child(4) {
+      display: none;
     }
   }
 }

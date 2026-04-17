@@ -1,0 +1,242 @@
+.footer {
+  margin-top: 60px;
+
+  &-top {
+    max-width: 1410px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &-about {
+    max-width: 320px;
+
+    &-info address {
+      color: var(--body);
+    }
+  }
+
+  &-links {
+    & h4 {
+      color: var(--heading);
+    }
+
+    & ul {
+      list-style: none;
+      color: var(--body);
+    }
+  }
+
+  &-newsletter {
+    & h4 {
+      color: var(--heading);
+    }
+
+    & p {
+      color: var(--body);
+      width: 450px;
+      flex-shrink: 0;
+    }
+
+    &-form {
+      & input {
+        display: flex;
+        width: 290px;
+        height: 50px;
+        padding: 10px 20px;
+        align-items: center;
+        border-radius: 30px;
+        border: 1px solid var(--line);
+        background: var(--white);
+      }
+
+      & button {
+        width: 150px;
+        height: 50px;
+        padding: 10px;
+      }
+    }
+  }
+
+  &-bottom-inner {
+    max-width: 1410px;
+    margin: 0 auto;
+    padding-top: 50px;
+    margin-top: 50px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  &-settings {
+    width: 30%;
+  }
+
+  &-copyright {
+    color: var(--body);
+    width: 40%;
+    text-align: center;
+  }
+
+  &-payments {
+    justify-content: flex-end;
+    width: 30%;
+  }
+
+  &-payment {
+    width: 35px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .footer-payment:nth-of-type(1) {
+    background-image: url("../../assest/images/payment1.png");
+  }
+
+  .footer-payment:nth-of-type(2) {
+    background-image: url("../../assest/images/payment2.png");
+  }
+
+  .footer-payment:nth-of-type(3) {
+    background-image: url("../../assest/images/payment3.png");
+  }
+
+  .footer-payment:nth-of-type(4) {
+    background-image: url("../../assest/images/payment4.png");
+  }
+
+  .footer-payment:nth-of-type(5) {
+    background-image: url("../../assest/images/payment5.png");
+  }
+
+  .footer-payment:nth-of-type(6) {
+    background-image: url("../../assest/images/payment6.png");
+  }
+
+  .footer-payment:nth-of-type(7) {
+    background-image: url("../../assest/images/payment7.png");
+  }
+}
+
+@media screen and (max-width: 1023.98px) {
+  .footer {
+    &-top {
+      flex-direction: column;
+      padding: 0 20px;
+    }
+
+    &-about {
+      margin-right: 0;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &-links {
+      display: flex;
+      gap: 0;
+    }
+
+    &-links,
+    &-newsletter {
+      width: 100%;
+      margin-left: 0 !important;
+      margin-bottom: 0px;
+      gap: 0;
+    }
+
+    &-links h4,
+    &-newsletter h4 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      cursor: pointer;
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    &-links h4::after,
+    &-newsletter h4::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    &-links.active h4::after,
+    &-newsletter.active h4::after {
+      content: "-";
+    }
+
+    &-links ul,
+    &-newsletter p,
+    &-newsletter form {
+      display: none;
+      padding-bottom: 15px;
+    }
+
+    &-links.active ul,
+    &-newsletter.active p,
+    &-newsletter.active form {
+      display: flex;
+    }
+
+    &-newsletter.active p {
+      display: block;
+      width: 100%;
+    }
+
+    &-newsletter-form {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &-newsletter-form input {
+      width: 100%;
+    }
+
+    &-newsletter-form button {
+      width: 100%;
+    }
+
+    &-bottom-inner {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    &-settings {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &-copyright {
+      text-align: center;
+      width: 100%;
+    }
+
+    &-payments {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .footer {
+    &-newsletter {
+      & input {
+        width: 230px;
+        height: 50px;
+      }
+
+      & button {
+        width: 150px;
+        height: 50px;
+      }
+
+      &-form {
+        flex-direction: row;
+      }
+    }
+  }
+}

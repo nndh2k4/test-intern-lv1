@@ -72,12 +72,19 @@
   display: none;
 }
 
+@media screen and (min-width: 429.98px) and (max-width: 767.98px) {
+  .slider {
+    background-image: url("./assest/images/stylish-top-trending.jpg");
+    background-color: lightgray;
+    background-position: 0px 0px;
+    background-size: 100% 104.938%;
+    background-repeat: no-repeat;
+  }
+}
+
 @media screen and (max-width: 767.98px) {
   /* slider */
   .slider {
-    width: 430px;
-    height: 550px;
-
     background-image: url("./assest/images/stylish-top-trending.jpg");
     background-color: lightgray;
     background-position: 0px 0px;
@@ -119,5 +126,12 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 429.98px) {
+  .slider {
+    width: 430px;
+    height: 550px;
   }
 }

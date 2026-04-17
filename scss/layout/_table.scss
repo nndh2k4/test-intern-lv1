@@ -1,0 +1,43 @@
+table,
+td,
+th {
+  border: 1px solid var(--line);
+  padding: 10px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.table-product-image {
+  width: 150px;
+  height: 200px;
+
+  & img {
+    border-radius: 10px;
+  }
+}
+
+.table-product-info,
+.table-product-price {
+  color: var(--heading);
+}
+
+.table-product-quantity {
+  width: 24px;
+  min-width: 24px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--heading);
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.table-product-quantity::-webkit-outer-spin-button,
+.table-product-quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
