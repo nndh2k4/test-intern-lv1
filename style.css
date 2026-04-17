@@ -807,14 +807,14 @@ body {
 }
 
 .featured-card:first-child {
-  background-image: url("../../assest/images/feature-clothing.png");
+  background-image: url("./assest/images/feature-clothing.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .featured-card:last-child {
-  background-image: url("../../assest/images/feature-sneaker.jpg");
+  background-image: url("./assest/images/feature-sneaker.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1121,13 +1121,13 @@ body {
   height: 800px;
 }
 .banner-image:nth-child(1) {
-  background: url("../../assest/images/banner-1.png") lightgray 50%/cover no-repeat;
+  background: url("./assest/images/banner-1.png") lightgray 50%/cover no-repeat;
 }
 .banner-image:nth-child(2) {
-  background: url("../../assest/images/banner-2.png") lightgray 50%/cover no-repeat;
+  background: url("./assest/images/banner-2.png") lightgray 50%/cover no-repeat;
 }
 .banner-image:nth-child(3) {
-  background: url("../../assest/images/banner-3.png") lightgray 50%/cover no-repeat;
+  background: url("./assest/images/banner-3.png") lightgray 50%/cover no-repeat;
 }
 .banner-image {
   border-radius: 10px;
@@ -1669,25 +1669,25 @@ body {
   background-repeat: no-repeat;
 }
 .footer .footer-payment:nth-of-type(1) {
-  background-image: url("../../assest/images/payment1.png");
+  background-image: url("./assest/images/payment1.png");
 }
 .footer .footer-payment:nth-of-type(2) {
-  background-image: url("../../assest/images/payment2.png");
+  background-image: url("./assest/images/payment2.png");
 }
 .footer .footer-payment:nth-of-type(3) {
-  background-image: url("../../assest/images/payment3.png");
+  background-image: url("./assest/images/payment3.png");
 }
 .footer .footer-payment:nth-of-type(4) {
-  background-image: url("../../assest/images/payment4.png");
+  background-image: url("./assest/images/payment4.png");
 }
 .footer .footer-payment:nth-of-type(5) {
-  background-image: url("../../assest/images/payment5.png");
+  background-image: url("./assest/images/payment5.png");
 }
 .footer .footer-payment:nth-of-type(6) {
-  background-image: url("../../assest/images/payment6.png");
+  background-image: url("./assest/images/payment6.png");
 }
 .footer .footer-payment:nth-of-type(7) {
-  background-image: url("../../assest/images/payment7.png");
+  background-image: url("./assest/images/payment7.png");
 }
 
 @media screen and (max-width: 1023.98px) {

@@ -7,15 +7,15 @@
     height: 800px;
 
     &:nth-child(1) {
-      background: url("../../assest/images/banner-1.png") lightgray 50% / cover
+      background: url("./assest/images/banner-1.png") lightgray 50% / cover
         no-repeat;
     }
     &:nth-child(2) {
-      background: url("../../assest/images/banner-2.png") lightgray 50% / cover
+      background: url("./assest/images/banner-2.png") lightgray 50% / cover
         no-repeat;
     }
     &:nth-child(3) {
-      background: url("../../assest/images/banner-3.png") lightgray 50% / cover
+      background: url("./assest/images/banner-3.png") lightgray 50% / cover
         no-repeat;
     }
 
