@@ -1214,11 +1214,13 @@ body {
 }
 .arrivals-product-img {
   width: 330px;
-  height: 440px;
+  height: auto;
 }
 .arrivals-product-img img {
+  width: 100%;
+  height: auto;
+  display: block;
   border-radius: 10px;
-  overflow: hidden;
 }
 .arrivals-product-badge {
   position: absolute;
@@ -1347,7 +1349,7 @@ body {
   }
   .arrivals-product-img {
     width: 300px;
-    height: 410px;
+    height: auto;
   }
 }
 .feedback {
@@ -1389,8 +1391,11 @@ body {
   border: 1px solid var(--line);
 }
 .feedback-avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
   border-radius: 64px;
-  overflow: hidden;
 }
 .feedback-message {
   display: -webkit-box;
