@@ -989,7 +989,7 @@ body {
   color: var(--sale);
 }
 .trend-product-price-discount span {
-  color: var(--body-secondary);
+  color: #767676;
   text-decoration-line: line-through;
   font-weight: 400;
 }
@@ -1240,7 +1240,7 @@ body {
   color: var(--sale);
 }
 .arrivals-product-price-discount span {
-  color: var(--body-secondary);
+  color: #767676;
   text-decoration-line: line-through;
   font-weight: 400;
 }
