@@ -1,0 +1,179 @@
+const fs = require("fs/promises");
+const path = require("path");
+const sharp = require("sharp");
+
+const IMAGES_DIR = path.resolve(__dirname, "..", "assest", "images");
+
+const tasks = [
+  { file: "stylish-top-trending.jpg", quality: 72, width: 1600 },
+  {
+    file: "feature-bags.jpg",
+    outputs: [
+      { suffix: "", quality: 72, width: 700 },
+      { suffix: "-350", quality: 70, width: 350 }
+    ]
+  },
+  { file: "feature-sneaker.jpg", quality: 72, width: 1100 },
+  {
+    file: "feature-sunglasses.jpg",
+    outputs: [
+      { suffix: "", quality: 72, width: 700 },
+      { suffix: "-350", quality: 70, width: 350 }
+    ]
+  },
+
+  {
+    file: "trend-product-1.jpg",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+  {
+    file: "trend-product-2.jpg",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+  {
+    file: "trend-product-3.jpg",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+  {
+    file: "trend-product-4.jpg",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+
+  { file: "gram-1.jpg", quality: 70, width: 600 },
+  { file: "gram-2.jpg", quality: 70, width: 600 },
+  { file: "gram-3.jpg", quality: 70, width: 600 },
+  { file: "gram-4.jpg", quality: 70, width: 600 },
+  { file: "gram-5.jpg", quality: 70, width: 600 },
+  { file: "gram-6.jpg", quality: 70, width: 600 },
+
+  {
+    file: "arrivals-product-1.png",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+  {
+    file: "arrivals-product-2.png",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+  {
+    file: "arrivals-product-3.png",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+  {
+    file: "arrivals-product-4.png",
+    outputs: [
+      { suffix: "", quality: 72, width: 660 },
+      { suffix: "-370", quality: 70, width: 370 }
+    ]
+  },
+
+  { file: "banner-1.png", quality: 70, width: 900 },
+  { file: "banner-2.png", quality: 70, width: 900 },
+  { file: "banner-3.png", quality: 70, width: 900 },
+
+  { file: "feature-clothing.png", quality: 72, width: 1100 },
+  { file: "blazer.png", quality: 78, width: 640 },
+  { file: "handbag.png", quality: 78, width: 640 },
+  { file: "feedback-avatar-1.png", quality: 72, width: 50 },
+  { file: "feedback-avatar-2.png", quality: 72, width: 50 },
+  { file: "feedback-avatar-3.png", quality: 72, width: 50 }
+];
+
+const formatSize = (bytes) => `${(bytes / 1024).toFixed(2)} KiB`;
+
+async function optimizeImage({ file, quality, width, suffix = "" }) {
+  const inputPath = path.join(IMAGES_DIR, file);
+  const outputName = `${path.parse(file).name}${suffix}.webp`;
+  const outputPath = path.join(IMAGES_DIR, outputName);
+
+  const originalStats = await fs.stat(inputPath);
+
+  let pipeline = sharp(inputPath);
+  if (width) {
+    pipeline = pipeline.resize({ width, withoutEnlargement: true });
+  }
+
+  await pipeline.webp({ quality, effort: 6 }).toFile(outputPath);
+
+  const optimizedStats = await fs.stat(outputPath);
+
+  return {
+    file,
+    outputName,
+    before: originalStats.size,
+    after: optimizedStats.size,
+    saved: originalStats.size - optimizedStats.size
+  };
+}
+
+async function run() {
+  let totalSourceBytes = 0;
+  let totalGeneratedBytes = 0;
+  const seenInputs = new Set();
+
+  const results = [];
+
+  for (const task of tasks) {
+    const outputs = task.outputs && task.outputs.length
+      ? task.outputs
+      : [{ suffix: "", quality: task.quality, width: task.width }];
+
+    for (const output of outputs) {
+      try {
+        const result = await optimizeImage({
+          file: task.file,
+          quality: output.quality,
+          width: output.width,
+          suffix: output.suffix
+        });
+        results.push(result);
+        if (!seenInputs.has(task.file)) {
+          totalSourceBytes += result.before;
+          seenInputs.add(task.file);
+        }
+        totalGeneratedBytes += result.after;
+      } catch (error) {
+        const outputLabel = output.suffix ? `${task.file}${output.suffix}` : task.file;
+        console.error(`Failed: ${outputLabel}`);
+        console.error(error.message);
+        process.exitCode = 1;
+      }
+    }
+  }
+
+  results.sort((a, b) => b.saved - a.saved);
+
+  console.log("Optimized files:");
+  for (const result of results) {
+    console.log(
+      `${result.file} -> ${result.outputName} | ${formatSize(result.before)} -> ${formatSize(result.after)} | saved ${formatSize(result.saved)}`
+    );
+  }
+
+  console.log("\nSummary:");
+  console.log(`Total source bytes   : ${formatSize(totalSourceBytes)}`);
+  console.log(`Total generated bytes: ${formatSize(totalGeneratedBytes)}`);
+  console.log(`Delta                : ${formatSize(totalSourceBytes - totalGeneratedBytes)}`);
+}
+
+run();
