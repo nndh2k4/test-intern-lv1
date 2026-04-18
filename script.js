@@ -374,7 +374,7 @@ renderSlide(0);
 
 
 // footer
-$$('.footer-links h4, .footer-newsletter h4').forEach(title => {
+$$('.footer-links h2, .footer-newsletter h2').forEach(title => {
     title.addEventListener('click', () => {
         if (window.innerWidth < 1024) {
             title.parentElement.classList.toggle('active');

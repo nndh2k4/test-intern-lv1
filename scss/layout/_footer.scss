@@ -16,7 +16,7 @@
   }
 
   &-links {
-    & h4 {
+    & h2 {
       color: var(--heading);
     }
 
@@ -27,7 +27,7 @@
   }
 
   &-newsletter {
-    & h4 {
+    & h2 {
       color: var(--heading);
     }
 
@@ -133,8 +133,7 @@
     }
 
     &-links {
-      display: flex;
-      gap: 0;
+      display: block;
     }
 
     &-links,
@@ -145,25 +144,27 @@
       gap: 0;
     }
 
-    &-links h4,
-    &-newsletter h4 {
+    &-links h2,
+    &-newsletter h2 {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       width: 100%;
       cursor: pointer;
-      padding: 15px 0;
+      padding: 20px 0;
       border-top: 1px solid var(--line);
     }
 
-    &-links h4::after,
-    &-newsletter h4::after {
+    &-links h2::after,
+    &-newsletter h2::after {
       content: "+";
       font-size: 20px;
       font-weight: 400;
+      line-height: 1;
     }
 
-    &-links.active h4::after,
-    &-newsletter.active h4::after {
+    &-links.active h2::after,
+    &-newsletter.active h2::after {
       content: "-";
     }
 
@@ -171,30 +172,31 @@
     &-newsletter p,
     &-newsletter form {
       display: none;
-      padding-bottom: 15px;
     }
 
-    &-links.active ul,
-    &-newsletter.active p,
-    &-newsletter.active form {
+    &-links.active ul {
       display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding-bottom: 25px;
+      color: var(--body);
     }
 
     &-newsletter.active p {
       display: block;
       width: 100%;
+      padding-bottom: 25px;
+      font-size: 16px;
+      line-height: normal;
+      color: var(--body);
+    }
+
+    &-newsletter.active form {
+      display: flex;
+      gap: 10px;
     }
 
     &-newsletter-form {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    &-newsletter-form input {
-      width: 100%;
-    }
-
-    &-newsletter-form button {
       width: 100%;
     }
 
@@ -223,6 +225,10 @@
 
 @media screen and (max-width: 767.98px) {
   .footer {
+    &-top {
+      padding: 0;
+    }
+
     &-newsletter {
       & input {
         width: 230px;
@@ -236,6 +242,7 @@
 
       &-form {
         flex-direction: row;
+        gap: 10px;
       }
     }
 

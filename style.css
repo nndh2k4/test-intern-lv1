@@ -1616,14 +1616,14 @@ body {
 .footer-about-info address {
   color: var(--body);
 }
-.footer-links h4 {
+.footer-links h2 {
   color: var(--heading);
 }
 .footer-links ul {
   list-style: none;
   color: var(--body);
 }
-.footer-newsletter h4 {
+.footer-newsletter h2 {
   color: var(--heading);
 }
 .footer-newsletter p {
@@ -1707,8 +1707,7 @@ body {
     margin-bottom: 30px;
   }
   .footer-links {
-    display: flex;
-    gap: 0;
+    display: block;
   }
   .footer-links, .footer-newsletter {
     width: 100%;
@@ -1716,41 +1715,47 @@ body {
     margin-bottom: 0px;
     gap: 0;
   }
-  .footer-links h4, .footer-newsletter h4 {
+  .footer-links h2, .footer-newsletter h2 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     cursor: pointer;
-    padding: 15px 0;
+    padding: 20px 0;
     border-top: 1px solid var(--line);
   }
-  .footer-links h4::after, .footer-newsletter h4::after {
+  .footer-links h2::after, .footer-newsletter h2::after {
     content: "+";
     font-size: 20px;
     font-weight: 400;
+    line-height: 1;
   }
-  .footer-links.active h4::after, .footer-newsletter.active h4::after {
+  .footer-links.active h2::after, .footer-newsletter.active h2::after {
     content: "-";
   }
   .footer-links ul, .footer-newsletter p, .footer-newsletter form {
     display: none;
-    padding-bottom: 15px;
   }
-  .footer-links.active ul, .footer-newsletter.active p, .footer-newsletter.active form {
+  .footer-links.active ul {
     display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 25px;
+    color: var(--body);
   }
   .footer-newsletter.active p {
     display: block;
     width: 100%;
+    padding-bottom: 25px;
+    font-size: 16px;
+    line-height: normal;
+    color: var(--body);
+  }
+  .footer-newsletter.active form {
+    display: flex;
+    gap: 10px;
   }
   .footer-newsletter-form {
-    flex-direction: column;
-    width: 100%;
-  }
-  .footer-newsletter-form input {
-    width: 100%;
-  }
-  .footer-newsletter-form button {
     width: 100%;
   }
   .footer-bottom-inner {
@@ -1772,6 +1777,9 @@ body {
   }
 }
 @media screen and (max-width: 767.98px) {
+  .footer-top {
+    padding: 0;
+  }
   .footer-newsletter input {
     width: 230px;
     height: 50px;
@@ -1782,6 +1790,7 @@ body {
   }
   .footer-newsletter-form {
     flex-direction: row;
+    gap: 10px;
   }
   .footer-follow {
     display: none;
