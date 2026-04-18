@@ -54,7 +54,9 @@
         background: rgba(17, 17, 17, 0.35);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.25s ease, visibility 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          visibility 0.25s ease;
       }
 
       & img {
@@ -78,7 +80,10 @@
         transform: translate(-50%, -50%) translateY(12px);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          visibility 0.25s ease;
       }
 
       &:hover::after {
@@ -241,25 +246,24 @@
   }
 }
 
-@media screen and (max-width: 1279.98px) {
-  .trend {
-    &-product:nth-child(4) {
-      display: none;
-    }
-
-    &-product {
-      &-img {
-        width: 300px;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 1023.98px) {
   .trend {
     &-product:nth-child(3),
     &-product:nth-child(4) {
       display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1023.98px) and (max-width: 1919.98px) {
+  .trend {
+    &-product:nth-child(3) {
+      display: none;
+    }
+
+    &-product-img {
+      width: 300px;
+      height: 410px;
     }
   }
 }

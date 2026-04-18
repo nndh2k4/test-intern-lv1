@@ -332,13 +332,13 @@ const sliderPrevBtn = $('.slider-btn-prev');
 const sliderNextBtn = $('.slider-btn-next');
 const slides = [
     {
-        image: './assest/images/stylish-top-trending.jpg',
+        image: './assest/images/stylish-top-trending.webp',
     },
     {
-        image: './assest/images/feature-clothing.png',
+        image: './assest/images/feature-clothing.webp',
     },
     {
-        image: './assest/images/feature-sneaker.jpg',
+        image: './assest/images/feature-sneaker.webp',
     },
 ];
 

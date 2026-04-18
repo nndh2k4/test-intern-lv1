@@ -485,11 +485,11 @@ body {
 .header-menu-collection-image {
   width: 268px;
   height: 330px;
-  background: url("./assest/images/blazer.png") lightgray 50%/contain no-repeat;
+  background: url("./assest/images/blazer.webp") lightgray 50%/contain no-repeat;
 }
 
 .header-menu-collection-image:nth-child(2) {
-  background: url("./assest/images/handbag.png") lightgray 50%/contain no-repeat;
+  background: url("./assest/images/handbag.webp") lightgray 50%/contain no-repeat;
 }
 
 .header-menu-collection-image {
@@ -655,7 +655,7 @@ body {
   position: relative;
   max-width: var(--max-width);
   height: 810px;
-  background-image: url("./assest/images/stylish-top-trending.jpg");
+  background-image: url("./assest/images/stylish-top-trending.webp");
   background-color: lightgray;
   background-position: 0px 0px;
   background-size: 100% 104.938%;
@@ -722,24 +722,13 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 429.98px) and (max-width: 767.98px) {
+@media screen and (min-width: 431.98px) and (max-width: 767.98px) {
   .slider {
-    background-image: url("./assest/images/stylish-top-trending.jpg");
-    background-color: lightgray;
-    background-position: 0px 0px;
-    background-size: 100% 104.938%;
-    background-repeat: no-repeat;
+    height: 550px;
   }
 }
 @media screen and (max-width: 767.98px) {
   /* slider */
-  .slider {
-    background-image: url("./assest/images/stylish-top-trending.jpg");
-    background-color: lightgray;
-    background-position: 0px 0px;
-    background-size: 100% 104.938%;
-    background-repeat: no-repeat;
-  }
   .slider-content-info h1 {
     font-size: 40px;
     font-weight: 400;
@@ -771,9 +760,8 @@ body {
     transform: translateX(-50%);
   }
 }
-@media screen and (max-width: 429.98px) {
+@media screen and (max-width: 431px) {
   .slider {
-    width: 430px;
     height: 550px;
   }
 }
@@ -807,14 +795,14 @@ body {
 }
 
 .featured-card:first-child {
-  background-image: url("./assest/images/feature-clothing.png");
+  background-image: url("./assest/images/feature-clothing.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .featured-card:last-child {
-  background-image: url("./assest/images/feature-sneaker.jpg");
+  background-image: url("./assest/images/feature-sneaker.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1098,17 +1086,18 @@ body {
     color: var(--white);
   }
 }
-@media screen and (max-width: 1279.98px) {
-  .trend-product:nth-child(4) {
+@media screen and (max-width: 1023.98px) {
+  .trend-product:nth-child(3), .trend-product:nth-child(4) {
+    display: none;
+  }
+}
+@media screen and (min-width: 1023.98px) and (max-width: 1919.98px) {
+  .trend-product:nth-child(3) {
     display: none;
   }
   .trend-product-img {
     width: 300px;
-  }
-}
-@media screen and (max-width: 1023.98px) {
-  .trend-product:nth-child(3), .trend-product:nth-child(4) {
-    display: none;
+    height: 410px;
   }
 }
 .banner {
@@ -1121,13 +1110,13 @@ body {
   height: 800px;
 }
 .banner-image:nth-child(1) {
-  background: url("./assest/images/banner-1.png") lightgray 50%/cover no-repeat;
+  background: url("./assest/images/banner-1.webp") lightgray 50%/cover no-repeat;
 }
 .banner-image:nth-child(2) {
-  background: url("./assest/images/banner-2.png") lightgray 50%/cover no-repeat;
+  background: url("./assest/images/banner-2.webp") lightgray 50%/cover no-repeat;
 }
 .banner-image:nth-child(3) {
-  background: url("./assest/images/banner-3.png") lightgray 50%/cover no-repeat;
+  background: url("./assest/images/banner-3.webp") lightgray 50%/cover no-repeat;
 }
 .banner-image {
   border-radius: 10px;
@@ -1276,7 +1265,7 @@ body {
     display: block;
     color: var(--body);
     text-align: center;
-    line-height: 0.6956521739;
+    line-height: normal;
   }
   .arrivals-control-mb {
     display: flex;
@@ -1303,6 +1292,10 @@ body {
   .arrivals-product-img {
     width: 185px;
     height: 246px;
+  }
+  .arrivals-product-img img {
+    width: 100%;
+    height: 100%;
   }
   .arrivals-product-actions {
     position: absolute;
@@ -1343,17 +1336,18 @@ body {
     color: var(--white);
   }
 }
-@media screen and (max-width: 1279.98px) {
-  .arrivals-product:nth-child(4) {
+@media screen and (max-width: 1023.98px) {
+  .arrivals-product:nth-child(3), .arrivals-product:nth-child(4) {
+    display: none;
+  }
+}
+@media screen and (min-width: 1023.98px) and (max-width: 1919.98px) {
+  .arrivals-product:nth-child(3) {
     display: none;
   }
   .arrivals-product-img {
     width: 300px;
-  }
-}
-@media screen and (max-width: 1023.98px) {
-  .arrivals-product:nth-child(3), .arrivals-product:nth-child(4) {
-    display: none;
+    height: 410px;
   }
 }
 .feedback {
@@ -1417,10 +1411,10 @@ body {
   transform: translateY(-50%);
 }
 .feedback-control-prev {
-  left: 20px;
+  left: 50px;
 }
 .feedback-control-next {
-  right: 20px;
+  right: 50px;
 }
 
 @media screen and (max-width: 767.98px) {
@@ -1435,6 +1429,7 @@ body {
     display: block;
     color: var(--body);
     text-align: center;
+    line-height: normal;
   }
   .feedback-control-mb {
     display: flex;
@@ -1463,8 +1458,11 @@ body {
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
+  .feedback-product + .feedback-product {
+    margin-left: 0;
+  }
 }
-@media screen and (max-width: 1023.98px) {
+@media screen and (min-width: 768px) and (max-width: 1023.98px) {
   .feedback-control {
     display: none;
   }
@@ -1484,6 +1482,9 @@ body {
 @media screen and (min-width: 1023.98px) and (max-width: 1439.98px) {
   .feedback-product {
     width: auto;
+  }
+  .feedback {
+    padding: 0 var(--padding-container);
   }
 }
 .gram {
@@ -1776,6 +1777,9 @@ body {
   }
   .footer-newsletter-form {
     flex-direction: row;
+  }
+  .footer-follow {
+    display: none;
   }
 }
 .mobile-nav-bottom {

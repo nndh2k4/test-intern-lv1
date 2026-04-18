@@ -238,5 +238,9 @@
         flex-direction: row;
       }
     }
+
+    &-follow {
+      display: none;
+    }
   }
 }
