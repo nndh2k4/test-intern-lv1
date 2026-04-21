@@ -2,7 +2,7 @@
 
 .mini-cart {
   min-width: 375px;
-  height: 960px;
+  height: 100vh;
   background-color: var(--white);
   position: absolute;
   right: calc(var(--padding-container) * -1);
@@ -14,12 +14,13 @@
 }
 
 .mini-cart.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .mini-cart-title {
   height: 60px;
-  padding: 0 30px;
+  padding: 20px 30px;
 }
 
 .mini-cart-shipping {
@@ -62,12 +63,12 @@
 }
 
 .mini-cart-list-product {
-  padding-bottom: 165px;
-  border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .mini-cart-product {
   padding: 20px 30px 0 30px;
+  flex: 1;
 }
 
 .mini-cart-timer-checkout {
