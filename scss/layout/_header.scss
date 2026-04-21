@@ -97,11 +97,15 @@
 .header-menu {
   position: relative;
   background-color: var(--white);
+
+  & a:hover {
+    cursor: pointer;
+  }
 }
 
 .header-menu-item:hover {
   color: var(--sale);
-  cursor: pointer;
+  cursor: default;
 }
 
 .header-menu-item:hover::after {

@@ -93,7 +93,6 @@ $$('.header-menu-item').forEach((item, index) => {
             dropdown.innerHTML = shopContent;
             dropdown.style.display = 'block';
         })
-
     }
 
     item.addEventListener('mouseleave', () => {
@@ -116,6 +115,7 @@ const overlay = $('.overlay');
 const miniCartCloseBtn = $('.mini-cart-close-btn');
 
 const openMiniCart = () => {
+    miniCart.classList.remove('closing');
     miniCart.classList.add('active');
     overlay.classList.add('active');
     lockBodyScroll();
@@ -123,14 +123,29 @@ const openMiniCart = () => {
 }
 
 const closeMiniCart = () => {
+    if (!miniCart.classList.contains('active')) return;
+
     miniCart.classList.remove('active');
+    miniCart.classList.add('closing');
     overlay.classList.remove('active');
     unlockBodyScroll();
 }
 
-headerActionMiniCart.addEventListener('mouseenter', openMiniCart);
-headerActionMiniCart.addEventListener('mouseleave', closeMiniCart);
-miniCartCloseBtn.addEventListener('click', closeMiniCart);
+miniCart.addEventListener('animationend', (e) => {
+    if (e.animationName === 'slideOutRight') {
+        miniCart.classList.remove('closing');
+    }
+});
+
+headerActionMiniCart.addEventListener('click', (e) => {
+    if (e.target.closest('.mini-cart')) return;
+    openMiniCart();
+});
+
+miniCartCloseBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeMiniCart();
+});
 overlay.addEventListener('click', closeMiniCart);
 
 const updateShippingProgress = () => {
