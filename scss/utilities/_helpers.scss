@@ -1,7 +1,6 @@
 /* Base Classes */
 
 .container {
-  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -145,4 +144,8 @@
 
 .overlay.active {
   animation: overlay 0.2s forwards;
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }

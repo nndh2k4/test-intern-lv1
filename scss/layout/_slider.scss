@@ -2,7 +2,6 @@
 
 .slider {
   position: relative;
-  max-width: var(--max-width);
   height: 810px;
 
   background-image: url("./assest/images/stylish-top-trending.webp");
@@ -69,7 +68,18 @@
 }
 
 .slider-dots {
-  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & > svg > circle {
+    fill: rgba(0, 0, 0, 0.2);
+  }
+
+  & > svg.slider-dot-active > circle {
+    fill: black;
+  }
 }
 
 @media screen and (min-width: 431.98px) and (max-width: 767.98px) {

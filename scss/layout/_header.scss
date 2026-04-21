@@ -16,9 +16,12 @@
   transform: translateY(-50%);
 }
 
+.header-topLinks-wrapper {
+  border-bottom: 1px solid var(--line);
+}
+
 .header-topLinks {
   padding: 0 30px;
-  border-bottom: 1px solid var(--line);
   min-height: var(--header-topLinks-height);
 }
 
@@ -30,7 +33,7 @@
   color: var(--heading);
 }
 
-.header-topLinks-content span {
+.header-topLinks-content a {
   font-weight: 500;
   text-decoration-line: underline;
   text-decoration-style: solid;
@@ -49,9 +52,9 @@
 }
 
 .header-inner {
-  height: var(--header-height-desktop);
   padding: 0 var(--padding-container);
   background-color: var(--white);
+  height: var(--header-height-desktop);
 }
 
 .header-toggle {

@@ -118,7 +118,10 @@
     }
 
     &-products {
+      width: 100%;
+      max-width: 100%;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory; // Enable horizontal snapping
 
       &::-webkit-scrollbar {
@@ -132,7 +135,7 @@
       flex: 0 0 100%;
       scroll-snap-align: start; // Ensure each product snaps to the start of the container
       scroll-snap-stop: always; // Ensure snapping occurs even if the user scrolls quickly
-    
+
       & + & {
         margin-left: 0;
       }
@@ -140,12 +143,15 @@
   }
 }
 
+
 @media screen and (min-width: 768px) and (max-width: 1023.98px) {
   .feedback {
     &-control {
       display: none;
     }
     &-products {
+      width: 100%;
+      max-width: 100%;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
 

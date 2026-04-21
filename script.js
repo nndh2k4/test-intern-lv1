@@ -1,6 +1,14 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const lockBodyScroll = () => {
+    document.body.classList.add('menu-open');
+}
+
+const unlockBodyScroll = () => {
+    document.body.classList.remove('menu-open');
+}
+
 const homeContent = `
         <ul class="flex flex-col gap-15 text-base font-normal header-menu-dropdown-list">
             <li class="flex align-center gap-8 header-menu-dropdown-item">
@@ -101,24 +109,29 @@ dropdown.addEventListener('mouseleave', () => {
     dropdown.style.display = 'none';
 })
 
-const headerActionMiniCart = $('.header-actions').lastElementChild;
+const headerActionMiniCart = $('.header-action-cart-wrapper');
+
 const miniCart = $('.mini-cart');
 const overlay = $('.overlay');
+const miniCartCloseBtn = $('.mini-cart-close-btn');
 
-headerActionMiniCart.addEventListener('mouseenter', () => {
-    miniCart.style.display = 'block';
-    overlay.style.display = 'block';
-    miniCart.classList.toggle('active');
-    overlay.classList.toggle('active');
+const openMiniCart = () => {
+    miniCart.classList.add('active');
+    overlay.classList.add('active');
+    lockBodyScroll();
     updateShippingProgress();
-})
+}
 
-miniCart.addEventListener('mouseleave', () => {
-    miniCart.classList.toggle('active');
-    overlay.classList.toggle('active');
-    miniCart.style.display = 'none';
-    overlay.style.display = 'none';
-})
+const closeMiniCart = () => {
+    miniCart.classList.remove('active');
+    overlay.classList.remove('active');
+    unlockBodyScroll();
+}
+
+headerActionMiniCart.addEventListener('mouseenter', openMiniCart);
+headerActionMiniCart.addEventListener('mouseleave', closeMiniCart);
+miniCartCloseBtn.addEventListener('click', closeMiniCart);
+overlay.addEventListener('click', closeMiniCart);
 
 const updateShippingProgress = () => {
     const miniCartShippingLineWidth = $('.mini-cart-shipping-line').offsetWidth;
@@ -295,11 +308,13 @@ const openSubMenu = (element) => {
 
 const closeMobileMenu = () => {
     menuMb.classList.remove('is-open');
+    unlockBodyScroll();
     resetMobileMenuState();
 }
 
 const openMobileMenu = () => {
     menuMb.classList.add('is-open');
+    lockBodyScroll();
     resetMobileMenuState();
 }
 
@@ -341,6 +356,7 @@ const slides = [
         image: './assest/images/feature-sneaker.webp',
     },
 ];
+const sliderDots = $$('.slider-dot');
 
 let currentSlideIndex = 0;
 
@@ -351,6 +367,13 @@ const renderSlide = (index) => {
 
     currentSlideIndex = normalizedIndex;
     slider.style.background = `url("${slide.image}") lightgray center / cover no-repeat`;
+    sliderDots.forEach((dot, dotIndex) => {
+        if (dotIndex === normalizedIndex) {
+            dot.classList.add('slider-dot-active');
+        } else {
+            dot.classList.remove('slider-dot-active');
+        }
+    });
 };
 
 const goToNextSlide = () => {

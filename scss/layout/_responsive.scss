@@ -2,6 +2,11 @@
   .container {
     padding: 0 var(--padding-mb-container);
   }
+
+  .header-inner-wrapper {
+    padding: 0;
+  }
+
   .header-notification {
     display: none;
   }
@@ -28,20 +33,38 @@
     display: block;
   }
 
+  body.menu-open {
+    overflow: hidden;
+  }
+
   .header-menu-mb {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
     z-index: 10;
-    padding-bottom: 139px;
-    display: none;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     background-color: var(--white);
   }
 
+  .header-menu-mb-title-wrapper,
+  .header-menu-mb-content,
+  .header-menu-mb-languague,
+  .header-menu-mb-currency {
+    width: 100%;
+  }
+
+  .header-menu-mb-content {
+    padding: 0 30px;
+  }
+
   .header-menu-mb-title {
-    width: 430px;
+    width: 100%;
     height: 55px;
     padding: 10px 30px;
     background: var(--sale);
@@ -56,12 +79,8 @@
     color: var(--white);
   }
 
-  .header-menu-mb-content {
-    padding: 0 30px;
-  }
-
   .header-menu-mb-content-item {
-    width: 370px;
+    width: 100%;
     height: 55px;
   }
 
@@ -96,20 +115,23 @@
 
   .header-menu-mb-languague,
   .header-menu-mb-currency {
-    padding: 20px 0;
+    padding: 20px 30px;
+  }
+
+  .header-menu-mb-languague p.active,
+  .header-menu-mb-currency p.active {
+    text-decoration: underline;
   }
 
   .header-menu-mb-languague-content,
   .header-menu-mb-currency-content {
-    width: 370px;
+    width: 100%;
     align-content: flex-start;
-    flex-wrap: wrap;
   }
 
-  .header-menu-mb-languague-content,
+  .header-menu-mb-languague-content p,
   .header-menu-mb-currency-content p {
     text-transform: uppercase;
-    text-decoration: underline;
   }
 
   .header-menu-mb-language-flag-wrapper,
@@ -194,7 +216,7 @@
 
   .header-menu-dropdown-item {
     display: flex;
-    width: 370px;
+    width: 100%;
     padding: 16px 0;
     align-items: center;
     border-bottom: 1px solid var(--line);
@@ -202,13 +224,14 @@
   }
 
   .header-menu-collection-image {
-    width: 368px;
-    height: 453px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 368 / 453;
     border-radius: 10px;
   }
 
   .btn-large {
-    width: 370px;
+    width: 100%;
     height: 45px;
   }
 }

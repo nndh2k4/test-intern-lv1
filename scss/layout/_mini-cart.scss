@@ -1,7 +1,7 @@
 /* Mini Cart */
 
 .mini-cart {
-  width: 450px;
+  min-width: 375px;
   height: 960px;
   background-color: var(--white);
   position: absolute;
@@ -11,6 +11,10 @@
   );
   z-index: 10;
   display: none;
+}
+
+.mini-cart.active {
+  display: block;
 }
 
 .mini-cart-title {
@@ -142,4 +146,21 @@
   top: 0;
   left: 0;
   z-index: 8;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .mini-cart {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+  }
+
+  .mini-cart-product-item {
+    grid-template-columns: 80px 1fr auto;
+  }
 }
