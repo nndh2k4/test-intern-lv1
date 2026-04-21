@@ -41,12 +41,14 @@
 }
 
 .mini-cart.active {
+  display: flex;
   visibility: visible;
   pointer-events: auto;
   animation: slideInRight 0.3s ease-out forwards;
 }
 
 .mini-cart.closing {
+  display: flex;
   visibility: visible;
   pointer-events: none;
   animation: slideOutRight 0.25s ease-in forwards;

@@ -139,6 +139,12 @@ miniCart.addEventListener('animationend', (e) => {
 
 headerActionMiniCart.addEventListener('click', (e) => {
     if (e.target.closest('.mini-cart')) return;
+
+    if (miniCart.classList.contains('active')) {
+        closeMiniCart();
+        return;
+    }
+
     openMiniCart();
 });
 
