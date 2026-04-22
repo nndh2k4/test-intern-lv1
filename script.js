@@ -263,7 +263,7 @@ const renderMobileMenuTitle = (title = mainMenuTitle, isSubMenu = false) => {
         <div class="flex justify-between align-center header-menu-mb-title" data-title="Main Menu" ${isSubMenu ? 'style="background: #f5f5f5;"' : ''}>
             <div class="flex align-center gap-30">
                 ${isSubMenu ? `<div class="flex align-center gap-15">
-                    <div class="header-menu-mb-backBtn">
+                    <div class="cursor-pointer header-menu-mb-backBtn">
                         <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.42578 10.2344C6.59505 10.4036 6.67969 10.6055 6.67969 10.8398C6.67969 11.0612 6.59505 11.25 6.42578 11.4062C6.26953 11.5755 6.07422 11.6602 5.83984 11.6602C5.60547 11.6602 5.41016 11.5755 5.25391 11.4062L0.253906 6.40625C0.0846354 6.25 0 6.0612 0 5.83984C0 5.60547 0.0846354 5.40365 0.253906 5.23438L5.25391 0.234375C5.41016 0.078125 5.60547 0 5.83984 0C6.07422 0 6.26953 0.078125 6.42578 0.234375C6.59505 0.403646 6.67969 0.605469 6.67969 0.839844C6.67969 1.0612 6.59505 1.25 6.42578 1.40625L2.01172 5.82031L6.42578 10.2344Z"
@@ -276,7 +276,7 @@ const renderMobileMenuTitle = (title = mainMenuTitle, isSubMenu = false) => {
                     <p class="text-sm font-semibold uppercase">Categories</p>
                 `}
             </div>
-            <div class="header-menu-mb-closeBtn">
+            <div class="cursor-pointer header-menu-mb-closeBtn">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
