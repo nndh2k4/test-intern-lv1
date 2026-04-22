@@ -69,10 +69,10 @@ const shopContent = `
             </div>
             <div class="flex gap-20 header-menu-collection">
                 <div class="relative header-menu-collection-image">
-                    <button href="#" class="text-sm font-medium btn btn-medium btn-primary absolute">Blazers</button>
+                    <button href="#" class="text-sm font-medium btn btn-small btn-primary absolute">Blazers</button>
                 </div>
                 <div class="relative header-menu-collection-image">
-                    <button href="#" class="text-sm font-medium btn btn-medium btn-primary absolute">Handbag</button>
+                    <button href="#" class="text-sm font-medium btn btn-small btn-primary absolute">Handbag</button>
                 </div>
             </div>
         </div>
@@ -92,6 +92,7 @@ $$('.header-menu-item').forEach((item, index) => {
         item.addEventListener('mouseenter', () => {
             dropdown.innerHTML = shopContent;
             dropdown.style.display = 'block';
+            dropdown.style.left = 'auto';
         })
     }
 

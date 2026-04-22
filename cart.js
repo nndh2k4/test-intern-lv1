@@ -19,7 +19,6 @@ addToCartButtons.forEach(button => {
             alert(`Added "${productName}" to cart!`);
             localStorage.setItem('cartInfo', JSON.stringify(cartInfo));
         }
-
     });
 })
 
@@ -37,7 +36,7 @@ const productInfoContent = (item) => `
                     <div class="table-product-info">
                         <p>Size / Color</p>
                     </div>
-                    <p class="table-product-price">${item.price.split("\n")[0]}</p>
+                    <p class="table-product-price">$${parseFloat((item.price.split(" ")[0]).split('$')[1]).toFixed(2)}</p>
                 </div>
             </div>
         </td>
@@ -60,7 +59,7 @@ const productInfoContent = (item) => `
         </td>
 
         <td>
-            <p class="table-product-total-price">$${(item.price.split("\n")[0]).split('$')[1]}</p>
+            <p class="table-product-total-price">$${item.total ? parseFloat(item.total).toFixed(2) : parseFloat((item.price.split(" ")[0]).split('$')[1]).toFixed(2)}</p>
         </td>
         <td>
             <button class="text-sm font-normal mini-cart-product-action-remove table-product-action-remove"><svg width="12" height="13"
@@ -97,6 +96,16 @@ tableProductDecreaseQuantity.forEach(button => {
         const unitPrice = (button.closest('tr').querySelector('.table-product-price')).textContent.split('$')[1];
         const quantity = parseInt(quantityInput.value);
         const total = (unitPrice * quantity).toFixed(2);
+
+        // Update quantity & total price in localStorage
+        const productId = button.closest('tr').getAttribute('data-product-id');
+        const productIndex = storedCartInfo.findIndex(item => item.id === productId);
+        if (productIndex !== -1) {
+            storedCartInfo[productIndex].quantity = quantity;
+            storedCartInfo[productIndex].total = parseFloat(total);
+            localStorage.setItem('cartInfo', JSON.stringify(storedCartInfo));
+        }
+
         tableProductPrice.textContent = `$${total}`;
     });
 });
@@ -110,8 +119,18 @@ tableProductIncreaseQuantity.forEach(button => {
 
         const unitPrice = (button.closest('tr').querySelector('.table-product-price')).textContent.split('$')[1];
         const quantity = parseInt(quantityInput.value);
-
         const total = (unitPrice * quantity).toFixed(2);
+
+        // Update quantity in localStorage
+        const productId = button.closest('tr').getAttribute('data-product-id');
+        const productIndex = storedCartInfo.findIndex(item => item.id === productId);
+
+        if (productIndex !== -1) {
+            storedCartInfo[productIndex].quantity = quantity;
+            storedCartInfo[productIndex].total = parseFloat(total);
+            localStorage.setItem('cartInfo', JSON.stringify(storedCartInfo));
+        }
+
         const tableProductPrice = button.closest('tr').querySelector('.table-product-total-price');
         tableProductPrice.textContent = `$${total}`;
     });
@@ -125,7 +144,7 @@ tableProductActionRemove.forEach(button => {
         }
 
         const productId = row.getAttribute('data-product-id');
-        const updatedCartInfo = storedCartInfo.filter(item => item.id !== productId);
+        const updatedCartInfo = JSON.parse(localStorage.getItem('cartInfo')).filter(item => item.id !== productId);
         localStorage.setItem('cartInfo', JSON.stringify(updatedCartInfo));
     });
 });
