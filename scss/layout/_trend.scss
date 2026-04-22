@@ -1,15 +1,7 @@
 .trend {
-  margin-top: 100px;
   &-title {
     & h2 {
-      color: var(--Theading);
-      text-align: center;
-      font-size: 45px;
       line-height: calc(32 / 45);
-    }
-
-    & p {
-      display: none;
     }
   }
 
@@ -17,17 +9,8 @@
     display: none;
   }
 
-  &-tabs {
-    align-items: flex-end;
-  }
-
   &-tab {
     padding: 7.5px 25px;
-
-    & p {
-      color: var(--heading);
-      text-align: center;
-    }
     border-radius: 30px;
     background: var(--white);
   }
@@ -38,13 +21,9 @@
   }
 
   &-product {
-    position: relative;
     &-img {
-      position: relative;
       width: 330px;
       height: 440px;
-      border-radius: 10px;
-      overflow: hidden;
 
       &::after {
         content: "";
@@ -113,11 +92,6 @@
 
     &-sale-info {
       display: none;
-    }
-
-    &-name,
-    &-price {
-      color: var(--heading);
     }
 
     &-price {

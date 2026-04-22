@@ -68,7 +68,7 @@ body {
 }
 
 /* Base Classes */
-.body.menu-open {
+body.menu-open {
   overflow: hidden;
 }
 
@@ -182,6 +182,11 @@ body {
   padding-right: var(--padding-container);
 }
 
+.px-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .p-30 {
   padding: 30px;
 }
@@ -196,6 +201,14 @@ body {
 
 .text-lg {
   font-size: 18px;
+}
+
+.font-size-45 {
+  font-size: 45px;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .underline {
@@ -230,12 +243,24 @@ body {
   position: fixed;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
 .list-style-none {
   list-style: none;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-60 {
+  margin-top: 60px;
 }
 
 .mt-100 {
@@ -603,7 +628,6 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-  right: calc(var(--padding-container) * -1);
   z-index: 10;
   cursor: auto;
   display: flex;
@@ -684,6 +708,9 @@ body {
   padding: 20px 30px 0 30px;
   flex: 1;
   overflow-y: auto;
+}
+.mini-cart-product::-webkit-scrollbar {
+  display: none;
 }
 
 .mini-cart-timer-checkout {
@@ -781,7 +808,6 @@ body {
 }
 /* slider */
 .slider {
-  position: relative;
   height: 810px;
   background-image: url("./assest/images/stylish-top-trending.webp");
   background-color: lightgray;
@@ -791,7 +817,6 @@ body {
 }
 
 .slider-content {
-  position: absolute;
   top: 50%;
   left: calc(353px / var(--max-width) * 100%);
   transform: translateY(-50%);
@@ -805,8 +830,6 @@ body {
 .slider-content-info h1 {
   font-size: 80px;
   line-height: 80px;
-  color: var(--heading);
-  text-align: center;
 }
 
 .slider-content-info p {
@@ -815,7 +838,6 @@ body {
 
 .slider-btn-prev,
 .slider-btn-next {
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 60px;
@@ -847,7 +869,6 @@ body {
 }
 
 .slider-dots {
-  position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -902,30 +923,16 @@ body {
     height: 550px;
   }
 }
-.featured {
-  margin-top: 100px;
-}
-
 .section-title h2 {
-  color: var(--heading);
-  text-align: center;
-  font-size: 45px;
   line-height: 32px;
 }
 
 .section-title p {
-  color: var(--body);
-  text-align: center;
   line-height: 11px;
-}
-
-.featured-collections {
-  margin-top: 40px;
 }
 
 .featured-card {
   width: 450px;
-  border-radius: 10px;
   overflow: hidden;
   position: relative;
   background-color: #f5f5f5;
@@ -1030,32 +1037,14 @@ body {
     background-size: cover;
   }
 }
-.trend {
-  margin-top: 100px;
-}
 .trend-title h2 {
-  color: var(--Theading);
-  text-align: center;
-  font-size: 45px;
   line-height: 0.7111111111;
-}
-.trend-title p {
-  display: none;
 }
 .trend-control-mb {
   display: none;
 }
-.trend-tabs {
-  align-items: flex-end;
-}
 .trend-tab {
   padding: 7.5px 25px;
-}
-.trend-tab p {
-  color: var(--heading);
-  text-align: center;
-}
-.trend-tab {
   border-radius: 30px;
   background: var(--white);
 }
@@ -1063,15 +1052,9 @@ body {
   border-radius: 30px;
   background: #f5f5f5;
 }
-.trend-product {
-  position: relative;
-}
 .trend-product-img {
-  position: relative;
   width: 330px;
   height: 440px;
-  border-radius: 10px;
-  overflow: hidden;
 }
 .trend-product-img::after {
   content: "";
@@ -1127,9 +1110,6 @@ body {
 }
 .trend-product-sale-info {
   display: none;
-}
-.trend-product-name, .trend-product-price {
-  color: var(--heading);
 }
 .trend-product-price-discount {
   color: var(--sale);
@@ -1783,19 +1763,11 @@ body {
     display: none;
   }
 }
-.footer {
-  margin-top: 60px;
-}
 .footer-top {
   max-width: 1410px;
-  margin: 0 auto;
-  padding: 0 15px;
 }
 .footer-about {
   max-width: 320px;
-}
-.footer-about-info address {
-  color: var(--body);
 }
 .footer-links h2 {
   color: var(--heading);
@@ -2083,12 +2055,19 @@ body {
 table,
 td,
 th {
-  border: 1px solid var(--line);
-  padding: 10px;
+  border: 1px solid black;
 }
 
 table {
   border-collapse: collapse;
+  width: 80%;
+}
+
+td {
+  text-align: center;
+}
+td div.mini-cart-product-quality {
+  margin: 0 auto;
 }
 
 .table-product-image {
@@ -2337,6 +2316,10 @@ table {
   }
   .header-menu {
     display: none;
+  }
+  .btn-large {
+    width: 100%;
+    height: 45px;
   }
 }
 

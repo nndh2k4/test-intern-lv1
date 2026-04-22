@@ -1,6 +1,6 @@
 /* Base Classes */
 
-.body.menu-open {
+body.menu-open {
   overflow: hidden;
 }
 
@@ -114,6 +114,11 @@
   padding-right: var(--padding-container);
 }
 
+.px-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .p-30 {
   padding: 30px;
 }
@@ -128,6 +133,14 @@
 
 .text-lg {
   font-size: 18px;
+}
+
+.font-size-45 {
+  font-size: 45px;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .underline {
@@ -162,12 +175,24 @@
   position: fixed;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
 .list-style-none {
   list-style: none;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-60 {
+  margin-top: 60px;
 }
 
 .mt-100 {

@@ -1,18 +1,10 @@
 .footer {
-  margin-top: 60px;
-
   &-top {
     max-width: 1410px;
-    margin: 0 auto;
-    padding: 0 15px;
   }
 
   &-about {
     max-width: 320px;
-
-    &-info address {
-      color: var(--body);
-    }
   }
 
   &-links {

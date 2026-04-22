@@ -29,7 +29,6 @@
   position: fixed;
   right: 0;
   bottom: 0;
-  right: calc(var(--padding-container) * -1);
   z-index: 10;
   cursor: auto;
   display: flex;
@@ -110,6 +109,10 @@
   padding: 20px 30px 0 30px;
   flex: 1;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .mini-cart-timer-checkout {

@@ -1,9 +1,7 @@
 /* slider */
 
 .slider {
-  position: relative;
   height: 810px;
-
   background-image: url("./assest/images/stylish-top-trending.webp");
   background-color: lightgray;
   background-position: 0px 0px;
@@ -12,7 +10,6 @@
 }
 
 .slider-content {
-  position: absolute;
   top: 50%;
   left: calc(353px / var(--max-width) * 100%);
   transform: translateY(-50%);
@@ -26,8 +23,6 @@
 .slider-content-info h1 {
   font-size: 80px;
   line-height: 80px;
-  color: var(--heading);
-  text-align: center;
 }
 
 .slider-content-info p {
@@ -36,7 +31,6 @@
 
 .slider-btn-prev,
 .slider-btn-next {
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 60px;
@@ -68,7 +62,6 @@
 }
 
 .slider-dots {
-  position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);

@@ -1,12 +1,20 @@
 table,
 td,
 th {
-  border: 1px solid var(--line);
-  padding: 10px;
+  border: 1px solid black;
 }
 
 table {
   border-collapse: collapse;
+  width: 80%;
+}
+
+td {
+  text-align: center;
+
+  & div.mini-cart-product-quality {
+    margin: 0 auto;
+  }
 }
 
 .table-product-image {

@@ -488,8 +488,8 @@
                         </div>
                     </a>
 
-                    <div class="header-action header-action-cart-wrapper">
-                        <a href="#">
+                    <div class="cursor-pointer header-action header-action-cart-wrapper">
+                        <div>
                             <span class="header-action-cart">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"
                                     fill="none">
@@ -554,7 +554,6 @@
                                         </p>
                                     </div>
                                 </div>
-
 
                                 <div class="flex flex-col mini-cart-product">
                                     <div class="align-center gap-8 mini-cart-timer-checkout">
@@ -802,17 +801,17 @@
                                     </div>
 
                                     <div class="flex flex-col align-center gap-10">
-                                        <button
-                                            class="btn btn-primary btn-large text-sm font-medium mini-cart-checkout-btn">Checkout</button>
+                                        <a href="#"
+                                            class="btn btn-primary btn-large text-sm font-medium mini-cart-checkout-btn">Checkout</a>
                                         <a href="/test-intern-lv1/cart.html"
                                             class="btn btn-secondary btn-large text-sm font-normal mini-cart-view-cart-btn">View
                                             Cart
                                         </a>
                                     </div>
                                 </div>
-
                             </div>
-                        </a>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -821,31 +820,31 @@
     </header>
 
     <main>
-        <section class="slider">
-            <button type="button" class="btn btn-secondary slider-btn-prev" aria-label="Previous slide">
+        <section class="relative slider">
+            <button type="button" class="absolute btn btn-secondary slider-btn-prev" aria-label="Previous slide">
                 <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M5.78321 9.21094C5.93556 9.36328 6.01173 9.54492 6.01173 9.75586C6.01173 9.95508 5.93556 10.125 5.78321 10.2656C5.64259 10.418 5.46681 10.4941 5.25587 10.4941C5.04493 10.4941 4.86915 10.418 4.72853 10.2656L0.228527 5.76562C0.0761833 5.625 1.14441e-05 5.45508 1.14441e-05 5.25586C1.14441e-05 5.04492 0.0761833 4.86328 0.228527 4.71094L4.72853 0.210938C4.86915 0.0703125 5.04493 0 5.25587 0C5.46681 0 5.64259 0.0703125 5.78321 0.210938C5.93556 0.363281 6.01173 0.544922 6.01173 0.755859C6.01173 0.955078 5.93556 1.125 5.78321 1.26562L1.81056 5.23828L5.78321 9.21094Z" />
                 </svg>
             </button>
 
-            <div class="inline-flex flex-col align-center gap-50 slider-content">
+            <div class="inline-flex flex-col align-center gap-50 absolute slider-content">
                 <div class="flex flex-col gap-20 align-center slider-content-info">
-                    <h1 class="font-normal">Stylish<br /> Top Trending</h1>
+                    <h1 class="heading font-normal text-center">Stylish<br /> Top Trending</h1>
                     <p class="text-base font-normal">So soft you don't want to take it off.</p>
                 </div>
 
                 <button class="btn btn-secondary text-sm font-semibold uppercase">Explore Now</button>
             </div>
 
-            <button type="button" class="btn btn-secondary slider-btn-next" aria-label="Next slide">
+            <button type="button" class="absolute btn btn-secondary slider-btn-next" aria-label="Next slide">
                 <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M1.28321 10.2656C1.14259 10.418 0.966808 10.4941 0.755871 10.4941C0.544933 10.4941 0.369152 10.418 0.228527 10.2656C0.0761833 10.125 1.14441e-05 9.95508 1.14441e-05 9.75586C1.14441e-05 9.54492 0.0761833 9.36328 0.228527 9.21094L4.20118 5.23828L0.228527 1.26562C0.0761833 1.125 1.14441e-05 0.955078 1.14441e-05 0.755859C1.14441e-05 0.544922 0.0761833 0.363281 0.228527 0.210938C0.369152 0.0703125 0.544933 0 0.755871 0C0.966808 0 1.14259 0.0703125 1.28321 0.210938L5.78321 4.71094C5.93556 4.86328 6.01173 5.04492 6.01173 5.25586C6.01173 5.45508 5.93556 5.625 5.78321 5.76562L1.28321 10.2656Z" />
                 </svg>
             </button>
 
-            <div class="inline-flex flex-start gap-10 slider-dots">
+            <div class="inline-flex flex-start gap-10 absolute slider-dots">
                 <svg class="slider-dot" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"
                     fill="none">
                     <circle cx="4" cy="4" r="4" />
@@ -863,21 +862,22 @@
             </div>
         </section>
 
-        <section class="container px-container featured">
+        <section class="container px-container mt-100 featured">
             <div class="flex flex-col align-center gap-25 section-title">
-                <h2 class="font-normal">Featured Collections</h2>
-                <p class="text-base font-normal">Elevate your style with our chic featured collection-where fashion
+                <h2 class="heading text-center font-size-45 font-normal">Featured Collections</h2>
+                <p class="color-body text-center text-base font-normal">Elevate your style with our chic featured
+                    collection-where fashion
                     meets flair effortlessly.</p>
             </div>
 
-            <div class="flex align-center justify-center gap-30 featured-collections">
-                <article class="featured-card featured-tall">
+            <div class="flex align-center justify-center gap-30 mt-40 featured-collections">
+                <article class="rounded-10 featured-card featured-tall">
                     <button href="#"
                         class="text-base font-medium btn btn-normal btn-primary btn-featured">Clothing</button>
                 </article>
 
                 <div class="flex flex-col gap-30 featured-stack">
-                    <article class="featured-card featured-short">
+                    <article class="rounded-10 featured-card featured-short">
                         <img src="./assest/images/feature-sunglasses.webp"
                             srcset="./assest/images/feature-sunglasses-350.webp 350w, ./assest/images/feature-sunglasses.webp 700w"
                             sizes="(max-width: 1023px) 45vw, 450px" width="450" height="350" loading="lazy"
@@ -886,7 +886,7 @@
                             class="text-base font-medium btn btn-normal btn-primary btn-featured">Sunglasses</button>
                     </article>
 
-                    <article class="featured-card featured-short">
+                    <article class="rounded-10 featured-card featured-short">
                         <img src="./assest/images/feature-bags.webp"
                             srcset="./assest/images/feature-bags-350.webp 350w, ./assest/images/feature-bags.webp 700w"
                             sizes="(max-width: 1023px) 45vw, 450px" width="450" height="350" loading="lazy"
@@ -896,17 +896,18 @@
                     </article>
                 </div>
 
-                <article class="featured-card featured-tall">
+                <article class="rounded-10 featured-card featured-tall">
                     <button href="#"
                         class="text-base font-medium btn btn-normal btn-primary btn-featured">Sneaker</button>
                 </article>
             </div>
         </section>
 
-        <section class="container flex flex-col align-center gap-40 trend">
+        <section class="container flex flex-col align-center gap-40 mt-100 trend">
             <div class="flex flex-col align-center gap-15 trend-title">
-                <h2 class="font-normal">Trending this Week</h2>
-                <p class="text-base font-normal">Here’s some of our most popular products people are in love with.</p>
+                <h2 class="font-normal heading text-center font-size-45">Trending this Week</h2>
+                <p class="none text-base font-normal">Here’s some of our most popular products people are in love with.
+                </p>
             </div>
 
             <div class="flex justify-center align-center gap-10 trend-control-mb">
@@ -927,31 +928,31 @@
                 </button>
             </div>
 
-            <ul class="flex justify-center gap-10 trend-tabs">
+            <ul class="flex justify-center gap-10 align-end trend-tabs">
                 <li class="flex flex-col justify-center align-center gap-10 trend-tab active">
-                    <p class="text-sm font-medium uppercase">tops</p>
+                    <p class="text-sm font-medium uppercase heading text-center">tops</p>
                 </li>
 
                 <li class="flex flex-col justify-center align-center gap-10 trend-tab">
-                    <p class="text-sm font-medium uppercase">dresses</p>
+                    <p class="text-sm font-medium uppercase heading text-center">dresses</p>
                 </li>
 
                 <li class="flex flex-col justify-center align-center gap-10 trend-tab">
-                    <p class="text-sm font-medium uppercase">t-shirt</p>
+                    <p class="text-sm font-medium uppercase heading text-center">t-shirt</p>
                 </li>
 
                 <li class="flex flex-col justify-center align-center gap-10 trend-tab">
-                    <p class="text-sm font-medium uppercase">bags</p>
+                    <p class="text-sm font-medium uppercase heading text-center">bags</p>
                 </li>
 
                 <li class="flex flex-col justify-center align-center gap-10 trend-tab">
-                    <p class="text-sm font-medium uppercase">shoes</p>
+                    <p class="text-sm font-medium uppercase heading text-center">shoes</p>
                 </li>
             </ul>
 
             <ul class="flex flex-start gap-30 trend-products">
-                <li class="flex flex-col flex-start gap-16 trend-product" data-product-id="1">
-                    <div class="trend-product-img">
+                <li class="flex flex-col flex-start gap-16 relative trend-product" data-product-id="1">
+                    <div class="rounded-10 overflow-hidden relative trend-product-img">
                         <img src="./assest/images/trend-product-1.webp"
                             srcset="./assest/images/trend-product-1-370.webp 370w, ./assest/images/trend-product-1.webp 660w"
                             sizes="(max-width: 767px) 185px, (max-width: 1023px) 330px, (max-width: 1919px) 300px, 330px"
@@ -972,7 +973,7 @@
                     </div>
 
                     <div class="flex flex-col flex-start gap-8 trend-product-desc">
-                        <p class="text-base font-normal trend-product-name">Square Textured Striped</p>
+                        <p class="text-base font-normal heading trend-product-name">Square Textured Striped</p>
                         <div class="flex flex-start gap-1 trend-product-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
                                 fill="none">
@@ -1009,7 +1010,7 @@
                                     fill="#111111" />
                             </svg>
                         </div>
-                        <p class="text-sm font-medium trend-product-price">$150.00</p>
+                        <p class="text-sm font-medium heading trend-product-price">$150.00</p>
                         <div class="flex align-center gap-5 trend-product-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                                 fill="none">
@@ -1032,7 +1033,7 @@
                     </div>
                 </li>
 
-                <li class="flex flex-col flex-start gap-16 trend-product" data-product-id="2">
+                <li class="flex flex-col flex-start gap-16 relative trend-product" data-product-id="2">
                     <div class="inline-flex flex-col flex-start gap-3 trend-product-badge">
                         <div class="font-normal badge badge-sale trend-product-badge-sale">
                             <p>-10%</p>
@@ -1055,7 +1056,7 @@
                         </button>
                     </div>
 
-                    <div class="trend-product-img">
+                    <div class="rounded-10 overflow-hidden relative trend-product-img">
                         <img src="./assest/images/trend-product-2.webp"
                             srcset="./assest/images/trend-product-2-370.webp 370w, ./assest/images/trend-product-2.webp 660w"
                             sizes="(max-width: 767px) 185px, (max-width: 1023px) 330px, (max-width: 1919px) 300px, 330px"
@@ -1088,7 +1089,7 @@
                     </div>
 
                     <div class="flex flex-col flex-start gap-8 trend-product-desc">
-                        <p class="text-base font-normal trend-product-name">Square Textured Striped</p>
+                        <p class="text-base font-normal heading trend-product-name">Square Textured Striped</p>
                         <div class="flex flex-start gap-1 trend-product-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
                                 fill="none">
@@ -1129,7 +1130,8 @@
                             </svg>
 
                         </div>
-                        <p class="gap-1 text-sm font-medium trend-product-price trend-product-price-discount">
+                        <p
+                            class="gap-1 text-sm font-medium heading trend-product-price heading trend-product-price-discount">
                             $150.00
                             <span>$490.00</span>
                         </p>
@@ -1155,8 +1157,8 @@
                     </div>
                 </li>
 
-                <li class="flex flex-col flex-start gap-16 trend-product" data-product-id="3">
-                    <div class="trend-product-img">
+                <li class="flex flex-col flex-start gap-16 relative trend-product" data-product-id="3">
+                    <div class="rounded-10 overflow-hidden relative trend-product-img">
                         <img src="./assest/images/trend-product-3.webp"
                             srcset="./assest/images/trend-product-3-370.webp 370w, ./assest/images/trend-product-3.webp 660w"
                             sizes="(max-width: 767px) 185px, (max-width: 1023px) 330px, (max-width: 1919px) 300px, 330px"
@@ -1177,7 +1179,7 @@
                     </div>
 
                     <div class="flex flex-col flex-start gap-8 trend-product-desc">
-                        <p class="text-base font-normal trend-product-name">Square Textured Striped</p>
+                        <p class="text-base font-normal heading trend-product-name">Square Textured Striped</p>
                         <div class="flex flex-start gap-1 trend-product-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
                                 fill="none">
@@ -1215,7 +1217,7 @@
                             </svg>
 
                         </div>
-                        <p class="text-sm font-medium trend-product-price">$150.00</p>
+                        <p class="text-sm font-medium heading trend-product-price">$150.00</p>
                         <div class="flex align-center gap-5 trend-product-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                                 fill="none">
@@ -1238,8 +1240,8 @@
                     </div>
                 </li>
 
-                <li class="flex flex-col flex-start gap-16 trend-product" data-product-id="4">
-                    <div class="trend-product-img">
+                <li class="flex flex-col flex-start gap-16 relative trend-product" data-product-id="4">
+                    <div class="rounded-10 overflow-hidden relative trend-product-img">
                         <img src="./assest/images/trend-product-4.webp"
                             srcset="./assest/images/trend-product-4-370.webp 370w, ./assest/images/trend-product-4.webp 660w"
                             sizes="(max-width: 767px) 185px, (max-width: 1023px) 330px, (max-width: 1919px) 300px, 330px"
@@ -1248,7 +1250,7 @@
                     </div>
 
                     <div class="flex flex-col flex-start gap-8 trend-product-desc">
-                        <p class="text-base font-normal trend-product-name">Square Textured Striped</p>
+                        <p class="text-base font-normal heading trend-product-name">Square Textured Striped</p>
                         <div class="flex flex-start gap-1 trend-product-rating">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
                                 fill="none">
@@ -1286,7 +1288,7 @@
                             </svg>
 
                         </div>
-                        <p class="text-sm font-medium trend-product-price">$145.00 - $169.00</p>
+                        <p class="text-sm font-medium heading trend-product-price">$145.00 - $169.00</p>
                         <div class="flex align-center gap-5 trend-product-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                                 fill="none">
@@ -1739,7 +1741,7 @@
             </ul>
         </section>
 
-        <section class="flex flex-col align-center gap-40 container feedback">
+        <section class="flex flex-col align-center gap-40 container px-container feedback">
             <div class="flex flex-col align-center gap-25 feedback-title">
                 <h2 class="font-normal">Customer Say!</h2>
                 <p class="text-base font-normal">Customers love our products and we always strive to please them all.
@@ -2004,9 +2006,9 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container flex flex-start justify-between footer-top">
-            <section class="flex flex-col gap-30 footer-about">
+    <footer class="mt-60 footer">
+        <div class="container flex flex-start justify-between px-15 footer-top">
+            <section class="color-body flex flex-col gap-30 footer-about">
                 <svg xmlns="http://www.w3.org/2000/svg" width="93" height="20" viewBox="0 0 93 20" fill="none">
                     <path
                         d="M11.8115 1.22514V11.5419C11.8355 12.1367 11.7215 12.729 11.4782 13.2724C11.2851 13.6987 11.0006 14.0774 10.6449 14.3818C10.3356 14.6293 9.98079 14.814 9.60042 14.9253C8.93576 15.1391 8.22063 15.1391 7.55597 14.9253C7.15401 14.8172 6.77673 14.6327 6.44486 14.3818C6.08585 14.0778 5.79766 13.6992 5.60042 13.2724C5.36685 12.7263 5.25683 12.1354 5.27819 11.5419V0.00488281H0.000415295V11.5419C-0.0106727 12.7279 0.200358 13.9055 0.622638 15.0141C1.01056 16.0113 1.60068 16.9177 2.35597 17.6765C3.13104 18.4277 4.05436 19.0095 5.06708 19.3848C6.19103 19.7957 7.3815 19.995 8.57819 19.9728C9.77559 19.9914 10.9661 19.7883 12.0893 19.3737C13.102 18.9984 14.0253 18.4166 14.8004 17.6654C15.5571 16.9099 16.1442 16.0024 16.5226 15.003C16.936 13.8923 17.143 12.7156 17.1337 11.5308V1.22514V0.00488281H11.8115V1.22514Z"

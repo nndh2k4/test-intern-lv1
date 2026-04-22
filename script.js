@@ -453,10 +453,10 @@ const slides = [
         image: './assest/images/stylish-top-trending.webp',
     },
     {
-        image: './assest/images/feature-clothing.webp',
+        image: './assest/images/h1-slide-show-2.jpg',
     },
     {
-        image: './assest/images/feature-sneaker.webp',
+        image: './assest/images/h1-slide-show-3.jpg',
     },
 ];
 const sliderDots = $$('.slider-dot');
