@@ -94,8 +94,10 @@ tableProductDecreaseQuantity.forEach(button => {
         }
 
         const tableProductPrice = button.closest('tr').querySelector('.table-product-total-price');
-        const unitPrice = (parseFloat(tableProductPrice.textContent.replace('$', '')) * parseInt(quantityInput.value)).toFixed(2);
-        tableProductPrice.textContent = `$${unitPrice}`;
+        const unitPrice = (button.closest('tr').querySelector('.table-product-price')).textContent.split('$')[1];
+        const quantity = parseInt(quantityInput.value);
+        const total = (unitPrice * quantity).toFixed(2);
+        tableProductPrice.textContent = `$${total}`;
     });
 });
 
@@ -106,9 +108,12 @@ tableProductIncreaseQuantity.forEach(button => {
             quantityInput.value = parseInt(quantityInput.value) + 1;
         }
 
+        const unitPrice = (button.closest('tr').querySelector('.table-product-price')).textContent.split('$')[1];
+        const quantity = parseInt(quantityInput.value);
+
+        const total = (unitPrice * quantity).toFixed(2);
         const tableProductPrice = button.closest('tr').querySelector('.table-product-total-price');
-        const unitPrice = (parseFloat(tableProductPrice.textContent.replace('$', '')) * parseInt(quantityInput.value)).toFixed(2);
-        tableProductPrice.textContent = `$${unitPrice}`;
+        tableProductPrice.textContent = `$${total}`;
     });
 });
 

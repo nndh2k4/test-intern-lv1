@@ -10,7 +10,7 @@ const unlockBodyScroll = () => {
 }
 
 const homeContent = `
-        <ul class="flex flex-col gap-15 text-base font-normal header-menu-dropdown-list">
+        <ul class="flex flex-col gap-15 text-base font-normal color-body list-style-none header-menu-dropdown-list">
             <li class="flex align-center gap-8 header-menu-dropdown-item">
                 Main demo
                 <div class="badge badge-menu badge-hot">HOT</div>
@@ -68,11 +68,11 @@ const shopContent = `
                 </ul>
             </div>
             <div class="flex gap-20 header-menu-collection">
-                <div class="header-menu-collection-image">
-                    <button href="#" class="text-sm font-medium btn btn-medium btn-primary">Blazers</button>
+                <div class="relative header-menu-collection-image">
+                    <button href="#" class="text-sm font-medium btn btn-medium btn-primary absolute">Blazers</button>
                 </div>
-                <div class="header-menu-collection-image">
-                    <button href="#" class="text-sm font-medium btn btn-medium btn-primary">Handbag</button>
+                <div class="relative header-menu-collection-image">
+                    <button href="#" class="text-sm font-medium btn btn-medium btn-primary absolute">Handbag</button>
                 </div>
             </div>
         </div>
@@ -197,6 +197,7 @@ const mainMenuTitle = menuMbContent?.getAttribute('data-content') || 'Main Menu'
 let activeSubMenu = null;
 let menuHistory = [];
 let currentMenuTitle = mainMenuTitle;
+let shouldResetMenuAfterClose = false;
 
 if (menuMbContent) {
     menuMbContent.querySelectorAll('.header-menu-mb-content-subItem').forEach((subMenu) => {
@@ -220,6 +221,38 @@ const hideMainMenuItems = () => {
 
     $('.header-menu-mb-languague').style.display = 'none';
     $('.header-menu-mb-currency').style.display = 'none';
+}
+
+const showSubMenuWithAnimation = (subMenu) => {
+    if (!subMenu) return;
+
+    subMenu.classList.remove('closing');
+    subMenu.style.display = 'flex';
+
+    requestAnimationFrame(() => {
+        subMenu.classList.add('active');
+    });
+}
+
+const hideSubMenuWithAnimation = (subMenu, onDone) => {
+    if (!subMenu) {
+        onDone?.();
+        return;
+    }
+
+    subMenu.classList.remove('active');
+    subMenu.classList.add('closing');
+
+    const onAnimationEnd = (e) => {
+        if (e.animationName !== 'slideOutLeft') return;
+
+        subMenu.removeEventListener('animationend', onAnimationEnd);
+        subMenu.classList.remove('closing');
+        subMenu.style.display = 'none';
+        onDone?.();
+    };
+
+    subMenu.addEventListener('animationend', onAnimationEnd);
 }
 
 const renderMobileMenuTitle = (title = mainMenuTitle, isSubMenu = false) => {
@@ -265,10 +298,12 @@ const renderMobileMenuTitle = (title = mainMenuTitle, isSubMenu = false) => {
 }
 
 const resetMobileMenuState = () => {
-    if (activeSubMenu) {
-        activeSubMenu.style.display = 'none';
-        activeSubMenu = null;
-    }
+    menuMbContent.querySelectorAll('.header-menu-mb-content-subItem').forEach((subMenu) => {
+        subMenu.classList.remove('active', 'closing');
+        subMenu.style.display = 'none';
+    });
+
+    activeSubMenu = null;
 
     menuHistory = [];
     currentMenuTitle = mainMenuTitle;
@@ -277,29 +312,52 @@ const resetMobileMenuState = () => {
 }
 
 const closeSubMenu = () => {
-    if (!menuHistory.length) {
-        resetMobileMenuState();
-        return;
-    }
+    const applyPreviousState = (previousState) => {
+        if (!previousState?.menu) {
+            activeSubMenu = null;
+            currentMenuTitle = mainMenuTitle;
+            showMainMenuItems();
+            renderMobileMenuTitle();
+            return;
+        }
 
-    if (activeSubMenu) {
-        activeSubMenu.style.display = 'none';
+        activeSubMenu = previousState.menu;
+        currentMenuTitle = previousState.title;
+        hideMainMenuItems();
+        showSubMenuWithAnimation(activeSubMenu);
+        renderMobileMenuTitle(currentMenuTitle, true);
+    };
+
+    if (!menuHistory.length) {
+        if (!activeSubMenu) {
+            resetMobileMenuState();
+            return;
+        }
+
+        const currentSubMenu = activeSubMenu;
+        activeSubMenu = null;
+
+        hideSubMenuWithAnimation(currentSubMenu, () => {
+            currentMenuTitle = mainMenuTitle;
+            showMainMenuItems();
+            renderMobileMenuTitle();
+        });
+        return;
     }
 
     const previousState = menuHistory.pop();
-    if (!previousState?.menu) {
-        activeSubMenu = null;
-        currentMenuTitle = mainMenuTitle;
-        showMainMenuItems();
-        renderMobileMenuTitle();
+
+    if (!activeSubMenu) {
+        applyPreviousState(previousState);
         return;
     }
 
-    activeSubMenu = previousState.menu;
-    currentMenuTitle = previousState.title;
-    hideMainMenuItems();
-    activeSubMenu.style.display = 'flex';
-    renderMobileMenuTitle(currentMenuTitle, true);
+    const currentSubMenu = activeSubMenu;
+    activeSubMenu = null;
+
+    hideSubMenuWithAnimation(currentSubMenu, () => {
+        applyPreviousState(previousState);
+    });
 }
 
 const openSubMenu = (element) => {
@@ -314,33 +372,46 @@ const openSubMenu = (element) => {
         title: currentMenuTitle,
     });
 
-    if (activeSubMenu) {
-        activeSubMenu.style.display = 'none';
-    } else {
+    const showTargetSubMenu = () => {
+        showSubMenuWithAnimation(subMenu);
+        activeSubMenu = subMenu;
+        currentMenuTitle = element.querySelector('p')?.textContent?.trim() || mainMenuTitle;
+        renderMobileMenuTitle(currentMenuTitle, true);
+    };
+
+    if (activeSubMenu && activeSubMenu !== subMenu) {
+        const currentSubMenu = activeSubMenu;
+        activeSubMenu = null;
+
+        hideSubMenuWithAnimation(currentSubMenu, showTargetSubMenu);
+        return;
+    }
+
+    if (!activeSubMenu) {
         hideMainMenuItems();
     }
 
-    subMenu.style.display = 'flex';
-    activeSubMenu = subMenu;
-
-    currentMenuTitle = element.querySelector('p')?.textContent?.trim() || mainMenuTitle;
-    renderMobileMenuTitle(currentMenuTitle, true);
+    showTargetSubMenu();
 }
 
 const closeMobileMenu = () => {
-    menuMb.classList.remove('is-open');
+    if (!menuMb.classList.contains('active')) return;
+
+    menuMb.classList.remove('active');
+    menuMb.classList.add('closing');
+    shouldResetMenuAfterClose = true;
     unlockBodyScroll();
-    resetMobileMenuState();
 }
 
 const openMobileMenu = () => {
-    menuMb.classList.add('is-open');
+    menuMb.classList.remove('closing');
+    menuMb.classList.add('active');
     lockBodyScroll();
     resetMobileMenuState();
 }
 
 const toggleMenuMobile = () => {
-    const isOpening = !menuMb.classList.contains('is-open');
+    const isOpening = !menuMb.classList.contains('active') && !menuMb.classList.contains('closing');
     if (isOpening) {
         openMobileMenu();
         return;
@@ -350,6 +421,17 @@ const toggleMenuMobile = () => {
 }
 
 renderMobileMenuTitle();
+
+menuMb.addEventListener('animationend', (e) => {
+    if (e.target !== menuMb || e.animationName !== 'slideOutLeft') return;
+
+    menuMb.classList.remove('closing');
+
+    if (shouldResetMenuAfterClose) {
+        resetMobileMenuState();
+        shouldResetMenuAfterClose = false;
+    }
+});
 
 if (menuMbBtn) {
     menuMbBtn.addEventListener('click', toggleMenuMobile);

@@ -12,6 +12,10 @@
   display: flex;
 }
 
+.none {
+  display: none;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -26,6 +30,10 @@
 
 .align-center {
   align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
 }
 
 .justify-center {
@@ -96,6 +104,20 @@
   gap: 80px;
 }
 
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.px-container {
+  padding-left: var(--padding-container);
+  padding-right: var(--padding-container);
+}
+
+.p-30 {
+  padding: 30px;
+}
+
 .text-sm {
   font-size: 14px;
 }
@@ -106,6 +128,10 @@
 
 .text-lg {
   font-size: 18px;
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .font-normal {
@@ -122,6 +148,34 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.rounded-10 {
+  border-radius: 10px;
 }
 
 @keyframes fadeIn {
@@ -142,6 +196,50 @@
   }
 }
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
 .header-action.active {
   animation: fadeIn 0.2s forwards;
 }
@@ -152,4 +250,41 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+.white {
+  color: var(--white);
+}
+
+.heading {
+  color: var(--heading);
+}
+
+.color-body {
+  color: var(--body);
+}
+
+.bg-topLinks {
+  background-color: var(--top-links);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-heading {
+  background-color: var(--heading);
+}
+
+.height-header-notification,
+.height-header-topLinks {
+  height: var(--header-notification-height);
+}
+
+.height-header-desktop {
+  height: var(--header-height-desktop);
+}
+
+.border-bottom-line {
+  border-bottom: 1px solid var(--line);
 }

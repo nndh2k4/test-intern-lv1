@@ -43,7 +43,7 @@
 
 .featured-card button {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   min-width: 120px;
   transform: translateX(-50%);
@@ -64,7 +64,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1023.98px) {
+@media screen and (max-width: 1200px) {
   .featured-collections {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -124,6 +124,16 @@
 
   .featured-card:first-child {
     background-size: contain;
+  }
+
+  .featured-card:last-child {
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 430.68px) {
+  .featured-card:first-child {
+    background-size: cover;
   }
 
   .featured-card:last-child {
