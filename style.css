@@ -1877,10 +1877,21 @@ body {
   background-image: url("./assest/images/payment7.png");
 }
 
+@media screen and (max-width: 1200px) {
+  .footer-top {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .footer-about, .footer-links, .footer-newsletter {
+    width: calc(50% - 20px);
+    max-width: 100%;
+  }
+}
 @media screen and (max-width: 1023.98px) {
   .footer-top {
     flex-direction: column;
     padding: 0 20px;
+    gap: 0;
   }
   .footer-about {
     margin-right: 0;
@@ -1905,30 +1916,59 @@ body {
     padding: 20px 0;
     border-top: 1px solid var(--line);
   }
-  .footer-links h2::after, .footer-newsletter h2::after {
-    content: "+";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1;
+  .footer-links h2 span, .footer-newsletter h2 span {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
   }
-  .footer-links.active h2::after, .footer-newsletter.active h2::after {
-    content: "-";
+  .footer-links h2 span::before, .footer-newsletter h2 span::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 12px;
+    background: var(--body);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+  }
+  .footer-links h2 span::after, .footer-newsletter h2 span::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 1px;
+    background: var(--body);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  .footer-links.active h2 span::before, .footer-newsletter.active h2 span::before {
+    opacity: 0;
+    transform: translateX(-50%) rotate(-90deg);
   }
   .footer-links ul, .footer-newsletter p, .footer-newsletter form {
-    display: none;
-  }
-  .footer-links.active ul {
-    display: flex;
-    flex-direction: column;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding-bottom 0.4s ease-in-out;
     gap: 15px;
+  }
+  .footer-links.active ul, .footer-newsletter.active p, .footer-newsletter.active form {
+    max-height: 400px;
+    opacity: 1;
     padding-bottom: 25px;
     color: var(--body);
+  }
+  .footer-links.active ul {
+    gap: 15px;
   }
   .footer-newsletter.active p {
     display: block;
     width: 100%;
-    padding-bottom: 25px;
-    font-size: 16px;
     line-height: normal;
     color: var(--body);
   }
