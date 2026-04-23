@@ -230,6 +230,10 @@ body.menu-open {
   padding-bottom: 22px;
 }
 
+.p-b-20 {
+  padding-bottom: 20px;
+}
+
 .px-container {
   padding-left: var(--padding-container);
   padding-right: var(--padding-container);
@@ -2317,7 +2321,7 @@ table {
   }
   .header-menu-mb-languague,
   .header-menu-mb-currency {
-    padding: 20px 30px;
+    padding: 20px 24px;
   }
   .header-menu-mb-languague p.active,
   .header-menu-mb-currency p.active {
