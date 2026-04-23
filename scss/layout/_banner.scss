@@ -39,7 +39,14 @@
   }
 }
 
-
+@media screen and (max-width: 1280px) {
+  .banner {
+    &-image {
+      width: 400px;
+      height: 500px;
+    }
+  }
+}
 
 @media screen and (max-width: 767.98px) {
   .banner {
@@ -86,15 +93,6 @@
         line-height: 1.5;
         font-size: 24px;
       }
-    }
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .banner {
-    &-image {
-      width: 450px;
-      height: 600px;
     }
   }
 }
