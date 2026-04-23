@@ -38,19 +38,10 @@
   }
 
   .header-menu-mb {
-    position: fixed;
     inset: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
     z-index: 10;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    background-color: var(--white);
-    transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -70,22 +61,12 @@
     animation: slideOutLeft 0.25s ease-in forwards;
   }
 
-  .header-menu-mb-title-wrapper,
-  .header-menu-mb-content,
-  .header-menu-mb-languague,
-  .header-menu-mb-currency {
-    width: 100%;
-  }
-
   .header-menu-mb-content {
-    padding: 0 24px;
+    padding: 0 24px 20px 24px;
   }
 
   .header-menu-mb-title {
-    width: 100%;
-    height: 55px;
     padding: 10px 24px;
-    background: var(--sale);
   }
 
   .header-menu-mb-title p {
@@ -95,11 +76,6 @@
   .header-menu-mb-title p:last-child {
     opacity: 0.6;
     color: var(--white);
-  }
-
-  .header-menu-mb-content-item {
-    width: 100%;
-    height: 55px;
   }
 
   .header-menu-mb-content-subItem {
@@ -120,28 +96,7 @@
   }
 
   .header-menu-mb-content-tag {
-    display: inline-flex;
     padding: 3.5px 7px;
-    align-items: flex-start;
-    gap: 10px;
-    border-radius: 2px;
-    background-color: var(--sale);
-    position: relative;
-  }
-
-  .header-menu-mb-content-tag p {
-    color: var(--white);
-    font-size: 9px;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
-  }
-
-  .header-menu-mb-content-tag svg {
-    position: absolute;
-    top: 50%;
-    left: -4px;
-    transform: translateY(-50%);
   }
 
   .header-menu-mb-languague,
@@ -152,34 +107,6 @@
   .header-menu-mb-languague p.active,
   .header-menu-mb-currency p.active {
     text-decoration: underline;
-  }
-
-  .header-menu-mb-languague-content,
-  .header-menu-mb-currency-content {
-    width: 100%;
-    align-content: flex-start;
-  }
-
-  .header-menu-mb-languague-content p,
-  .header-menu-mb-currency-content p {
-    text-transform: uppercase;
-  }
-
-  .header-menu-mb-language-flag-wrapper,
-  .header-menu-mb-currency-flag-wrapper {
-    padding: 3px;
-    align-items: center;
-    border-radius: 100px;
-    border: 1px solid var(--heading);
-    gap: 10px;
-  }
-
-  .header-menu-mb-language-flag,
-  .header-menu-mb-currency-flag {
-    width: 22px;
-    height: 22px;
-    border-radius: 22px;
-    border-radius: 22px;
   }
 
   /* Languages */
@@ -243,11 +170,6 @@
   }
 
   .header-menu-dropdown-item {
-    display: flex;
-    width: 100%;
-    padding: 22px 0;
-    align-items: center;
-    border-bottom: 1px solid var(--line);
     line-height: calc(16 / 23);
   }
 

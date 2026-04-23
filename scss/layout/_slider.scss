@@ -31,8 +31,6 @@
 
 .slider-btn-prev,
 .slider-btn-next {
-  top: 50%;
-  transform: translateY(-50%);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -62,10 +60,6 @@
 }
 
 .slider-dots {
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-
   & > svg > circle {
     fill: rgba(0, 0, 0, 0.2);
   }

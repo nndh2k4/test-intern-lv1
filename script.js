@@ -270,7 +270,7 @@ const renderMobileMenuTitle = (title = mainMenuTitle, isSubMenu = false) => {
     if (!menuMbTitleWrapper) return;
 
     menuMbTitleWrapper.innerHTML = `
-        <div class="flex justify-between align-center header-menu-mb-title" data-title="Main Menu" ${isSubMenu ? 'style="background: #f5f5f5;"' : ''}>
+        <div class="flex justify-between align-center w-full h-55px bg-sale header-menu-mb-title" data-title="Main Menu" ${isSubMenu ? 'style="background: #f5f5f5;"' : ''}>
             <div class="flex align-center gap-30">
                 ${isSubMenu ? `<div class="flex align-center gap-15">
                     <div class="cursor-pointer header-menu-mb-backBtn">
