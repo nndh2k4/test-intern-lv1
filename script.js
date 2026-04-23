@@ -79,32 +79,53 @@ const shopContent = `
     `;
 
 const dropdown = $('.header-menu-dropdown');
+let currentActiveMenu = null;
 
 $$('.header-menu-item').forEach((item, index) => {
     if (index === 0) {
         item.addEventListener('mouseenter', () => {
             dropdown.innerHTML = homeContent;
             dropdown.classList.add('home-active');
+            currentActiveMenu = 'home';
         })
 
     } else if (index === 1) {
         item.addEventListener('mouseenter', () => {
             dropdown.innerHTML = shopContent;
             dropdown.classList.add('shop-active');
+            currentActiveMenu = 'shop';
         })
     }
 
     item.addEventListener('mouseleave', () => {
-        dropdown.classList.remove('home-active', 'shop-active');
+        if (currentActiveMenu === 'home') {
+            dropdown.classList.remove('home-active');
+        }
+
+        if (currentActiveMenu === 'shop') {
+            dropdown.classList.remove('shop-active');
+        }
     })
 })
 
 dropdown.addEventListener('mouseenter', () => {
-    dropdown.classList.add('home-active', 'shop-active');
+    if (currentActiveMenu === 'home') {
+        dropdown.classList.add('home-active');
+    }
+
+    if (currentActiveMenu === 'shop') {
+        dropdown.classList.add('shop-active');
+    }
 })
 
 dropdown.addEventListener('mouseleave', () => {
-    dropdown.classList.remove('home-active', 'shop-active');
+    if (currentActiveMenu === 'home') {
+        dropdown.classList.remove('home-active');
+    }
+
+    if (currentActiveMenu === 'shop') {
+        dropdown.classList.remove('shop-active');
+    }
 })
 
 const headerActionMiniCart = $('.header-action-cart-wrapper');
