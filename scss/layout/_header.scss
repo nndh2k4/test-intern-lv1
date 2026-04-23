@@ -76,6 +76,27 @@
   z-index: 7;
 }
 
+.header-menu-dropdown.home-active {
+  display: block;
+  left: -5%;
+}
+
+.header-menu-dropdown.shop-active {
+  display: block;
+  left: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .header-menu-dropdown.shop-active {
+    left: -30%;
+  }
+
+  .header-menu-dropdown.shop-active .header-menu-collection-image {
+    width: 247px;
+    height: 304px;
+  }
+}
+
 .header-menu-collection-image {
   width: 268px;
   height: 330px;

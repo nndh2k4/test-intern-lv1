@@ -39,6 +39,8 @@
   }
 }
 
+
+
 @media screen and (max-width: 767.98px) {
   .banner {
     gap: 20px;
@@ -60,7 +62,7 @@
       bottom: 30px;
       gap: 25px;
       & h3 {
-        font-size: 30px;
+        font-size: 24px;
       }
 
       & div:first-child {
@@ -81,16 +83,17 @@
 
       & h3 {
         text-align: start;
-        line-height: 1;
+        line-height: 1.5;
+        font-size: 24px;
       }
     }
   }
 }
 
-@media screen and (max-width: 1023.98px) {
+@media screen and (max-width: 1200px) {
   .banner {
     &-image {
-      width: 400px;
+      width: 450px;
       height: 600px;
     }
   }
@@ -108,3 +111,4 @@
     }
   }
 }
+

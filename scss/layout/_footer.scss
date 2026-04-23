@@ -211,12 +211,19 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
+      margin: 0;
       padding-bottom: 0;
       transition:
         max-height 0.4s ease-in-out,
         opacity 0.4s ease-in-out,
         padding-bottom 0.4s ease-in-out;
       gap: 15px;
+    }
+
+    &-newsletter p,
+    &-newsletter form {
+      width: 100%;
+      gap: 10px;
     }
 
     &-links.active ul,
@@ -234,9 +241,7 @@
 
     &-newsletter.active p {
       display: block;
-      width: 100%;
       line-height: normal;
-      color: var(--body);
     }
 
     &-newsletter.active form {

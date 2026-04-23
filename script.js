@@ -84,32 +84,31 @@ $$('.header-menu-item').forEach((item, index) => {
     if (index === 0) {
         item.addEventListener('mouseenter', () => {
             dropdown.innerHTML = homeContent;
-            dropdown.style.display = 'block';
-            dropdown.style.left = '-5%';
+            dropdown.classList.add('home-active');
         })
 
     } else if (index === 1) {
         item.addEventListener('mouseenter', () => {
             dropdown.innerHTML = shopContent;
-            dropdown.style.display = 'block';
-            dropdown.style.left = 'auto';
+            dropdown.classList.add('shop-active');
         })
     }
 
     item.addEventListener('mouseleave', () => {
-        dropdown.style.display = 'none';
+        dropdown.classList.remove('home-active', 'shop-active');
     })
 })
 
 dropdown.addEventListener('mouseenter', () => {
-    dropdown.style.display = 'block';
+    dropdown.classList.add('home-active', 'shop-active');
 })
 
 dropdown.addEventListener('mouseleave', () => {
-    dropdown.style.display = 'none';
+    dropdown.classList.remove('home-active', 'shop-active');
 })
 
 const headerActionMiniCart = $('.header-action-cart-wrapper');
+const mobileNavWrapperCart = $('.mobile-nav-wrapper-cart');
 
 const miniCart = $('.mini-cart');
 const overlay = $('.overlay');
@@ -136,6 +135,17 @@ miniCart.addEventListener('animationend', (e) => {
     if (e.animationName === 'slideOutRight') {
         miniCart.classList.remove('closing');
     }
+});
+
+mobileNavWrapperCart.addEventListener('click', (e) => {
+    if (e.target.closest('.mini-cart')) return;
+
+    if (miniCart.classList.contains('active')) {
+        closeMiniCart();
+        return;
+    }
+
+    openMiniCart();
 });
 
 headerActionMiniCart.addEventListener('click', (e) => {

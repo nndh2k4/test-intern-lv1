@@ -584,6 +584,25 @@ body.menu-open {
   z-index: 7;
 }
 
+.header-menu-dropdown.home-active {
+  display: block;
+  left: -5%;
+}
+
+.header-menu-dropdown.shop-active {
+  display: block;
+  left: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .header-menu-dropdown.shop-active {
+    left: -30%;
+  }
+  .header-menu-dropdown.shop-active .header-menu-collection-image {
+    width: 247px;
+    height: 304px;
+  }
+}
 .header-menu-collection-image {
   width: 268px;
   height: 330px;
@@ -1301,7 +1320,7 @@ body.menu-open {
     gap: 25px;
   }
   .banner-desc h3 {
-    font-size: 30px;
+    font-size: 24px;
   }
   .banner-desc div:first-child {
     gap: 15px;
@@ -1316,12 +1335,13 @@ body.menu-open {
   }
   .banner-desc h3 {
     text-align: start;
-    line-height: 1;
+    line-height: 1.5;
+    font-size: 24px;
   }
 }
-@media screen and (max-width: 1023.98px) {
+@media screen and (max-width: 1200px) {
   .banner-image {
-    width: 400px;
+    width: 450px;
     height: 600px;
   }
 }
@@ -1334,9 +1354,6 @@ body.menu-open {
     max-width: calc((100% - 60px) / 3);
     aspect-ratio: 3/4;
   }
-}
-.arrivals {
-  margin-top: 100px;
 }
 .arrivals-title h2 {
   color: var(--Theading);
@@ -1517,9 +1534,6 @@ body.menu-open {
     height: auto;
   }
 }
-.feedback {
-  margin-top: 100px;
-}
 .feedback-title h2 {
   color: var(--heading);
   text-align: center;
@@ -1661,9 +1675,6 @@ body.menu-open {
   .feedback {
     padding: 0 var(--padding-container);
   }
-}
-.gram {
-  margin-top: 100px;
 }
 .gram-title {
   text-align: center;
@@ -1934,9 +1945,14 @@ body.menu-open {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
+    margin: 0;
     padding-bottom: 0;
     transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding-bottom 0.4s ease-in-out;
     gap: 15px;
+  }
+  .footer-newsletter p, .footer-newsletter form {
+    width: 100%;
+    gap: 10px;
   }
   .footer-links.active ul, .footer-newsletter.active p, .footer-newsletter.active form {
     max-height: 400px;
@@ -1949,9 +1965,7 @@ body.menu-open {
   }
   .footer-newsletter.active p {
     display: block;
-    width: 100%;
     line-height: normal;
-    color: var(--body);
   }
   .footer-newsletter.active form {
     display: flex;
@@ -1998,10 +2012,6 @@ body.menu-open {
     display: none;
   }
 }
-.mobile-nav-bottom {
-  display: none;
-}
-
 @media screen and (max-width: 767.98px) {
   body {
     padding-bottom: 75px;
@@ -2064,27 +2074,32 @@ body.menu-open {
 table,
 td,
 th {
-  border: 1px solid black;
+  border: 1px solid var(--line);
+}
+
+th,
+td {
+  padding: 20px;
+  text-align: left;
+}
+
+th {
+  font-weight: 500;
 }
 
 table {
   border-collapse: collapse;
-  width: 80%;
-}
-
-td {
-  text-align: center;
-}
-td div.mini-cart-product-quality {
-  margin: 0 auto;
+  width: 60%;
 }
 
 .table-product-image {
-  width: 150px;
-  height: 200px;
+  width: 80px;
+  height: 120px;
+  overflow: hidden;
 }
 .table-product-image img {
   border-radius: 10px;
+  object-fit: contain;
 }
 
 .table-product-info,
@@ -2092,21 +2107,34 @@ td div.mini-cart-product-quality {
   color: var(--heading);
 }
 
-.table-product-quantity {
-  width: 24px;
-  min-width: 24px;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: var(--heading);
-  text-align: center;
-  appearance: textfield;
-  -moz-appearance: textfield;
+.table-cart-quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  width: fit-content;
+  overflow: hidden;
+  background-color: var(--line);
 }
 
-.table-product-quantity::-webkit-outer-spin-button,
-.table-product-quantity::-webkit-inner-spin-button {
+.table-cart-quantity-control button {
+  width: 35px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-cart-quantity-control input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+.table-cart-quantity-control input::-webkit-inner-spin-button, .table-cart-quantity-control input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

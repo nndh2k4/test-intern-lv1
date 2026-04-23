@@ -42,13 +42,13 @@ const productInfoContent = (item) => `
         </td>
 
         <td>
-            <div class="flex justify-center align-center gap-15 mini-cart-product-quality">
+            <div class="flex justify-center align-center table-cart-quantity-control">
                 <button class="table-product-decrease-quantity">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="1" viewBox="0 0 9 1" fill="none">
                         <path d="M9 0L9 1L-4.37114e-08 1L0 -3.93402e-07L9 0Z" fill="#111111" />
                     </svg>
                 </button>
-                <input class="text-base font-normal table-product-quantity" type="number" min="1" value="${item.quantity}" >
+                <input class="text-base font-normal table-product-quantity" type="number" min="1" value="${item.quantity}" />
                 <button class="table-product-increase-quantity">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9H5L5 5H9V4H5L5 0H4L4 4H0V5H4L4 9Z"
@@ -59,7 +59,7 @@ const productInfoContent = (item) => `
         </td>
 
         <td>
-            <p class="table-product-total-price">$${item.total ? parseFloat(item.total).toFixed(2) : parseFloat((item.price.split(" ")[0]).split('$')[1]).toFixed(2)}</p>
+            <p class="font-semibold table-product-total-price">$${item.total ? parseFloat(item.total).toFixed(2) : parseFloat((item.price.split(" ")[0]).split('$')[1]).toFixed(2)}</p>
         </td>
         <td>
             <button class="text-sm font-normal mini-cart-product-action-remove table-product-action-remove"><svg width="12" height="13"
