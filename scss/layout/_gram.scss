@@ -1,33 +1,18 @@
 .gram {
   &-title {
-    text-align: center;
     & h2 {
-      color: var(--heading);
-      font-size: 45px;
       line-height: calc(32 / 45);
     }
 
     & p {
-      color: var(--body);
       line-height: calc(16 / 23);
     }
   }
 
-  &-list {
-    list-style: none;
-  }
-
   &-image {
-    position: relative;
     width: 231px;
     height: 231px;
-    & img {
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
     &-btn {
-      position: absolute;
       top: 10px;
       right: 10px;
       width: 26px;

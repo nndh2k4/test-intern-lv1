@@ -136,6 +136,10 @@ body.menu-open {
   gap: 10px;
 }
 
+.gap-13 {
+  gap: 13px;
+}
+
 .gap-15 {
   gap: 15px;
 }
@@ -269,6 +273,10 @@ body.menu-open {
 
 .rounded-10 {
   border-radius: 10px;
+}
+
+.rounded-30 {
+  border-radius: 30px;
 }
 
 @keyframes fadeIn {
@@ -522,7 +530,6 @@ body.menu-open {
 }
 
 .header-action-qty {
-  position: absolute;
   right: -13px;
   top: -5px;
   width: 18px;
@@ -1073,11 +1080,8 @@ body.menu-open {
 }
 .trend-tab {
   padding: 7.5px 25px;
-  border-radius: 30px;
-  background: var(--white);
 }
 .trend-tab.active {
-  border-radius: 30px;
   background: #f5f5f5;
 }
 .trend-product-img {
@@ -1676,32 +1680,17 @@ body.menu-open {
     padding: 0 var(--padding-container);
   }
 }
-.gram-title {
-  text-align: center;
-}
 .gram-title h2 {
-  color: var(--heading);
-  font-size: 45px;
   line-height: 0.7111111111;
 }
 .gram-title p {
-  color: var(--body);
   line-height: 0.6956521739;
 }
-.gram-list {
-  list-style: none;
-}
 .gram-image {
-  position: relative;
   width: 231px;
   height: 231px;
 }
-.gram-image img {
-  border-radius: 10px;
-  overflow: hidden;
-}
 .gram-image-btn {
-  position: absolute;
   top: 10px;
   right: 10px;
   width: 26px;
