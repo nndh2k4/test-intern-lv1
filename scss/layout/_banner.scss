@@ -27,7 +27,7 @@
       line-height: calc(25 / 36);
     }
 
-    & p {
+    & a {
       font-size: 12px;
       line-height: calc(8 / 12);
     }
@@ -83,6 +83,7 @@
   .banner {
     &-desc {
       gap: 10px;
+      left: 20px;
 
       &-content {
         gap: 10px;
